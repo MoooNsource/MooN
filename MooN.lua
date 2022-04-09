@@ -14592,7 +14592,17 @@ end
 
 
 luatele.run(CallBackLua)
- 
+if text == "غنيلي" then
+Abs = math.random(2,140); 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'},
+},
+{
+{text = '❲ 𝖲𝗈𝗎𝗋𝖼𝖾 MooN ❳',url="t.me/MOOONTEAM"}
+},
+} 
 
 
 
