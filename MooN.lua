@@ -716,13 +716,13 @@ else
 UserInfousername = '['..UserInfo.first_name..'](tg://user?id='..UserId..')'
 end
 return {
-Lock     = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
-Lock     = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
-unLock   = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
-lockKtm  = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
-lockKid  = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
-lockKick = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
-Reply    = '- الحلو ← *'..UserInfousername..'\n'..TextMsg..
+Lock     = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+Lock     = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+unLock   = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+lockKtm  = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+lockKid  = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+lockKick = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+Reply    = '\n*- الحلو :*'..UserInfousername..'\n*'..TextMsg..'\n*',
 }
 end
 function StatusCanOrNotCan(ChatId,UserId)
@@ -9918,16 +9918,16 @@ local T =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝗦𝗢𝗨𝗥𝗖𝗘 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/MOOONTEAM"}
+{text = ' 𝗠𝗢𝗢𝗡 𝗦𝗢𝗨𝗥𝗖𝗘 ☾', url = 't.me/MOOONTEAM'}, 
 },
 {
-{text = '𝗠𝗢𝗢𝗡 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ☾ ', url = "https://t.me/TTT33"}
+{text = '𝗠𝗢𝗢𝗡 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ☾', url = 't.me/TTT33'}, 
 },
 {
-{text = 'ُ𝗧𝗪𝗦𝗟 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/GBJBOT"}
+{text = '𝗧𝗪𝗦𝗟 𝗠𝗢𝗢𝗡 ☾',', url = 't.me/GBJBOT'}, 
 },
 {
-{text = '𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥 ☾', url = "https://t.me/HMMOT"}
+{text = '𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥 ☾',', url = 't.me/HMMOT'}, 
 },
 }
 local msgg = msg_id/2097152/0.5
