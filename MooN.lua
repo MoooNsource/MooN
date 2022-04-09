@@ -711,9 +711,9 @@ UserInfo.first_name = Name_User
 break
 end
 if UserInfo.username then
-UserInfousername = '['..UserInfo.first_name..'](t.me/'..UserInfo.username..')'
+ UserInfousername = '*['..UserInfo.first_name..'](t.me/'..UserInfo.username..')*'
 else
-UserInfousername = '['..UserInfo.first_name..'](tg://user?id='..UserId..')'
+UserInfousername = '*['..UserInfo.first_name..'](tg://user?id='..UserId..')*'
 end
 return {
 Lock     = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n',
