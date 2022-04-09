@@ -716,13 +716,13 @@ else
 UserInfousername = '['..UserInfo.first_name..'](tg://user?id='..UserId..')'
 end
 return {
-Lock     = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..'\n*',
-Lock     = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..'\n*',
-unLock   = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg,
-lockKtm  = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..'\n*',
-lockKid  = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..'\n*',
-lockKick = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..'\n *',
-Reply    = '- الحلو ← *'..UserInfousername..'\n'..TextMsg..'*'
+Lock     = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
+Lock     = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
+unLock   = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
+lockKtm  = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
+lockKid  = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
+lockKick = '- بواسطه ← *'..UserInfousername..'\n'..TextMsg..
+Reply    = '- الحلو ← *'..UserInfousername..'\n'..TextMsg..
 }
 end
 function StatusCanOrNotCan(ChatId,UserId)
@@ -9918,7 +9918,9 @@ local T =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝗦𝗢𝗨𝗥𝗖𝗘 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/MOOONTEAM"},
+{text = '𝗦𝗢𝗨𝗥𝗖𝗘 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/MOOONTEAM"}
+},
+{
 {text = '𝗠𝗢𝗢𝗡 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 ☾ ', url = "https://t.me/TTT33"}
 },
 {
