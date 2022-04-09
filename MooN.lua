@@ -710,19 +710,19 @@ for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end
+[In reply to - 𝘏𝘢𝘚𝘴𝘕 𝘔𝘶𝘈𝘦𝘋]
 if UserInfo.username then
- UserInfousername = '*['..UserInfo.first_name..'](t.me/'..UserInfo.username..')*'
+ UserInfousername = '['..UserInfo.first_name..'](t.me/'..UserInfo.username..')'
 else
-UserInfousername = '*['..UserInfo.first_name..'](tg://user?id='..UserId..')*'
+UserInfousername = '['..UserInfo.first_name..'](tg://user?id='..UserId..')'
 end
 return {
-Lock     = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n',
-Lock     = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n',
-unLock   = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n',
-lockKtm  = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n',
-lockKid  = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n',
-lockKick = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n',
-Reply    = '- الحلو :*'..UserInfousername..'\n*'..TextMsg..'\n',
+Lock = '*- بواسطه :*'..UserInfousername..'\n'..TextMsg..'\n',
+Reply = '*- المستخدم :*'..UserInfousername..'\n'..TextMsg..'\n',
+unLock = '*- بواسطه :*'..UserInfousername..'\n'..TextMsg..'\n',
+lockKid  = '*- بواسطه :*'..UserInfousername..'\n'..TextMsg..'\n',
+lockKtm = '*- بواسطه :*'..UserInfousername..'\n'..TextMsg..'\n',
+lockKick = '*- بواسطه :*'..UserInfousername..'\n'..TextMsg..'\n'
 }
 end
 function StatusCanOrNotCan(ChatId,UserId)
