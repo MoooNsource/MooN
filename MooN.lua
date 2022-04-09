@@ -9917,13 +9917,13 @@ local T =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝗦𝗢𝗨𝗥𝗖𝗘 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/MOOONTEAM"}
+{text = '𝗦𝗢𝗨𝗥𝗖𝗘 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/MOOONTEAM"},
 },
 {
-{text = 'ُ𝗧𝗪𝗦𝗟 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/GBJBOT"}
+{text = 'ُ𝗧𝗪𝗦𝗟 𝗠𝗢𝗢𝗡 ☾ ', url = "https://t.me/GBJBOT"},
 },
 {
-{text = '𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥 ☾', url = "https://t.me/HMMOT"}
+{text = '𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥 ☾', url = "https://t.me/HMMOT"},
 },
 }
 local msgg = msg_id/2097152/0.5
