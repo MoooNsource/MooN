@@ -14600,7 +14600,7 @@ keyboard.inline_keyboard = {
 {text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'},
 },
 {
-{text = '❲ 𝖲𝗈𝗎𝗋𝖼𝖾 MooN ❳',url="t.me/MOOONTEAM"}
+{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}
 },
 } 
 
