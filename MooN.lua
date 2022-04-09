@@ -716,13 +716,13 @@ else
 UserInfousername = '['..UserInfo.first_name..'](tg://user?id='..UserId..')'
 end
 return {
-Lock     = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
-Lock     = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
-unLock   = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
-lockKtm  = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
-lockKid  = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
-lockKick = '\n*- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
-Reply    = '\n*- الحلو :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+Lock     = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+Lock     = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+unLock   = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+lockKtm  = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+lockKid  = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+lockKick = '- بواسطه :*'..UserInfousername..'\n*'..TextMsg..'\n*',
+Reply    = '- الحلو :*'..UserInfousername..'\n*'..TextMsg..'\n*',
 }
 end
 function StatusCanOrNotCan(ChatId,UserId)
