@@ -710,7 +710,6 @@ for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end
-[In reply to - 𝘏𝘢𝘚𝘴𝘕 𝘔𝘶𝘈𝘦𝘋]
 if UserInfo.username then
  UserInfousername = '['..UserInfo.first_name..'](t.me/'..UserInfo.username..')'
 else
