@@ -6249,11 +6249,6 @@ return false
 end 
 local photo = LuaTele.getUserProfilePhotos(UserInfo.id)
 local InfoUser = LuaTele.getUserFullInfo(UserInfo.id)
-if InfoUser.bio then
-Bio = InfoUser.bio
-else
-Bio = ''
-end
 if photo.total_count > 0 then
 local TestText = "𝗈𝗐𝗇𝖾𝗋 𝗀𝗋𝗈𝗎𝗉𝗌.\n"
 tagname = UserInfo.first_name
@@ -6267,7 +6262,7 @@ tagname = tagname:gsub("[[]","")
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {{text =tagname, url ="tg://user?id="..UserInfo.id}},
-{{text = '❲ 𝖲𝗈𝗎𝗋𝖼𝖾 MooN ❳', url = "https://t.me/MOOONTEAM"}},
+{{text = ' 𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .', url = "https://t.me/MOOONTEAM"}},
 }
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
