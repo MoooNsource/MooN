@@ -11319,7 +11319,7 @@ local CmdStart = '*\n- أهلآ بك في بوت '..(Redis:get(TheMooN.."MooN:Na
 '\n- اضف البوت الى مجموعتك'..
 '\n- ارفعه ادمن {مشرف}'..
 '\n- ارسل كلمة { تفعيل } ليتم تفعيل المجموعه'..
-'\n- مطور البوت ← {'..UserSudo..'}*'
+'\n- مطور البوت ← {@'..UserSudo..'}*'
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
@@ -11337,7 +11337,7 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '-  السورس .', url = 't.me/MOOONTEAM'},{text = '-  لتنصيب بوت .', url = 't.me/HMMOT'}, 
+{text = '-  السورس .', url = 't.me/MOOONTEAM'},{text = '-  لتنصيب بوتك .', url = 't.me/HMMOT'}, 
 },
 {
 {text = '-  اضفني في مجموعتك .', url = 't.me/'..UserBot..'?startgroup=new'}, 
