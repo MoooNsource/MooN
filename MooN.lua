@@ -14603,18 +14603,7 @@ end
 end
 
 
-luatele.run(CallBackLua)
-if text == "غنيلي" then
-Abs = math.random(2,140); 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'},
-},
-{
-{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}
-},
-} 
+
 
 
 
