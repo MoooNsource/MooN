@@ -6243,7 +6243,7 @@ else
 Bio = ''
 end
 if photo.total_count > 0 then
-local TestText = " - ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")
+local TestText = " - ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
