@@ -4842,7 +4842,7 @@ if text and text:match('^بحث (.*)$') and Redis:get(TheMooN.."MooN:Status:yt".
 local Ttext = text:match('^بحث (.*)$') 
 local MsgId = msg.id/2097152/0.5
 local MSGID = string.gsub(MsgId,'.0','')
-local httpsCurl = "https://black-source.tk/BlackTeAM/searchinbot.php?token="..Token.."&msg="..MSGID.."&Text="..URL.escape(Ttext).."&chat_id="..msg_chat_id.."&user="..msg.sender.user_id
+local httpsCurl = "https://black-source.xyz/BlackTeAM/searchinbot.php?token="..Token.."&msg="..MSGID.."&Text="..URL.escape(Ttext).."&chat_id="..msg_chat_id.."&user="..msg.sender.user_id
 io.popen('curl -s "'..httpsCurl..'"')
 end
 
