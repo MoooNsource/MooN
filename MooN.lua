@@ -6646,12 +6646,12 @@ end
 end
 if text == "غنيلي" then
 Abs = math.random(2,140); 
-local Text ='*واحلا اغنيه الك*'
+local Text ='*واحلا اغنيه يحوب*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'}
-}
+{text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'},
+},
 {
 {text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}
 },
@@ -6661,34 +6661,30 @@ https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ms
 end
 if text == "متحركه" then
 Abs = math.random(2,140); 
-local Text ='*- تم اختيار متحركه لك*'
+local Text ='*لعيونك احلا متحركه *'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}},
+{{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/GifDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "شعر" then
 Abs = math.random(2,140); 
-local Text ='*واحلا شعر الك *'
+local Text ='*اهه شعر بحساس*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 ..',url="t.me/MOOONTEAM"}
-}
+{{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "ميمز" then
 Abs = math.random(2,140); 
-local Text ='*واحلا ميمز ياب*'
+local Text ='*احلا ميمز حوب*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}},
+{{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/remixsource/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -6717,7 +6713,7 @@ keyboardd.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/MoviesDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-if text == "انمي" or text == "انميي" then 
+if text == "انمي" or text == "انميي" or text == "اينمي" then  
 Abs = math.random(2,140); 
 local Text ='*احلا انمي حوب*'
 keyboardd = {} 
@@ -6741,7 +6737,7 @@ https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ms
 end
 if text == "صوره" or text == "صورة" then
 Abs = math.random(2,140); 
-local Text ='*هي صورا تأمرني*'
+local Text ='*واحلا صورا تأمرني*'
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
