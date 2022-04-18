@@ -9809,7 +9809,7 @@ Bio = ''
 end
 local photo = LuaTele.getUserProfilePhotos(Sudo_Id)
 if photo.total_count > 0 then
-local TestText = "-["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..")
+local TestText = "- ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..")]"
 keyboardd = {} 
 keyboardd.inline_keyboard = {
 {
@@ -9819,7 +9819,7 @@ keyboardd.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
 else
-local TestText = "  ❲ Developers Source ❳\n— — — — — — — — —\n - *Dev Name* :  ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..")\n- *Dev Bio* : [❲ "..Bio.." ❳]"
+local TestText = " - :  ["..UserInfo.first_name.."](tg://user?id="..Sudo_Id..")]"
 local msg_id = msg.id/2097152/0.5 
 return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
 end
@@ -9836,7 +9836,7 @@ if photo.total_count > 0 then
 data = {} 
 data.inline_keyboard = {
 {
-{text =' نسبة جمالك ياحلو'..rdbhoto..' 🙏😔🦋',url = "https://t.me/"..ban.username..""}, 
+{text ='نسبة جمالك يقمر'..rdbhoto..'  ☾ .',url = "https://t.me/"..ban.username..""}, 
 },
 }
 local msgg = msg_id/2097152/0.5
