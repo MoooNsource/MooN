@@ -11326,7 +11326,6 @@ data = {
 {text = ' 𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .', url = 't.me/MOOONTEAM'}, 
 },
 }
-}
 return LuaTele.sendText(msg_chat_id,msg_id,CmdStart,"md",false, false, false, false, reply_markup)
 else
 local reply_markup = LuaTele.replyMarkup{
@@ -11338,7 +11337,6 @@ data = {
 {
 {text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .', url = 't.me/MOOONTEAM'}, 
 },
-}
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(TheMooN.."MooN:Start:Bot"),"md",false, false, false, false, reply_markup)
 end
