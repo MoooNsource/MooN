@@ -11319,12 +11319,13 @@ local CmdStart = '*\n- أهلآ بك في بوت '..(Redis:get(TheMooN.."MooN:Na
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
-  {
-{text = ' اضفني في مجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{
+{text = 'اضفني في كروبك', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
-{text = ' 𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .', url = 't.me/MOOONTEAM'}, 
+{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .', url = 't.me/MOOONTEAM'}, 
 },
+}
 }
 return LuaTele.sendText(msg_chat_id,msg_id,CmdStart,"md",false, false, false, false, reply_markup)
 else
@@ -11332,11 +11333,12 @@ local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
 {
-{{text = ' اضفني في مجموعتك', url = 't.me/'..UserBot..'?startgroup=new'}, 
+{text = 'اضفني في كروبك', url = 't.me/'..UserBot..'?startgroup=new'}, 
 },
 {
 {text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .', url = 't.me/MOOONTEAM'}, 
 },
+}
 }
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(TheMooN.."MooN:Start:Bot"),"md",false, false, false, false, reply_markup)
 end
