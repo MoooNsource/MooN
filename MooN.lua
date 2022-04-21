@@ -2926,7 +2926,7 @@ local TotalMsg = Redis:get(TheMooN..'MooN:Num:Message:User'..msg_chat_id..':'..U
 local TotalEdit = Redis:get(TheMooN..'MooN:Num:Message:Edit'..msg_chat_id..UserId_Info.id) or 0
 local TotalMsgT = Total_message(TotalMsg) 
 return LuaTele.sendText(msg_chat_id,msg_id,
-''\n*- 𝗂𝖽 : '..UserId..
+'\n*- 𝗂𝖽 : '..UserId..
 '\n- 𝗎𝗌𝖾𝗋 : '..UserInfousername..
 '\n- 𝗋𝖺𝗇𝗄 : '..RinkBot..
 '\n- 𝗆𝗌𝗀𝗌 : '..TotalMsg..
