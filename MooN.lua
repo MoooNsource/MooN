@@ -6655,7 +6655,7 @@ local Text ='*- تم اختيار الاغنيه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'},
+{text = ': مره اخرى 🔃.', callback_data = ..IdUser..'/Re@'},
 },
 {
 {text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}
@@ -6674,7 +6674,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/GifDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-if text == "متحركات اطفال" or text == "متحركه اطفال" then
+if text == "متحركات تمبلر" or text == "متحركه تمبلر" then
 Abs = math.random(2,140); 
 local Text ='*تدلل حوبي *'
 keyboard = {} 
@@ -6682,7 +6682,7 @@ keyboard.inline_keyboard = {
 {{text = '𝘮𝘰𝘰𝘯 𝘴𝘰𝘶𝘳𝘤𝘦 .',url="t.me/MOOONTEAM"}},
 }
 local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/GifDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/temblrmoon/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "شعر" then
 Abs = math.random(2,140); 
