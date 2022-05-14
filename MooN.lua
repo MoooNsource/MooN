@@ -6658,7 +6658,7 @@ end
 end
 if text == "غنيلي" then
 Abs = math.random(2,140); 
-local Text ='*- تم اختيار الاغنيه لك*'
+local Text ='*-  تم اختيار الاغنيه لك تم*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'MNH ',url="t.me/wwwuw"}},
