@@ -6661,12 +6661,7 @@ Abs = math.random(2,140);
 local Text ='*- تم اختيار الاغنيه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = ': مره اخرى 🔃.', callback_data = IdUser..'/Re@'},
-},
-{
-{text = 'MNH ',url="t.me/wwwuw"}
-},
+{{text = 'MNH ',url="t.me/wwwuw"}},
 }
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/TEAMSUL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -6713,7 +6708,7 @@ keyboardd.inline_keyboard = {
 local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/remixsource/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-if text == "فلم" or text == "ريماكس" then 
+if text == "فلم" or text == "قيلم" then 
 Abs = math.random(2,140); 
 local Text ='*- تم اختيار الفلم لك*'
 keyboardd = {} 
