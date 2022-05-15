@@ -6667,13 +6667,15 @@ local msg_id = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/fgfgty12/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "بصمات مناوهيج" then
-  local Text ='تجمع مناوهيج .'
-  keyboard = {} 
-  keyboard.inline_keyboard = {{{text = 'بصمه ثانيه ', callback_data = msg.sender.user_id..'/Song'}},{{text='MNH',url="t.me/wwwuw"}
-  }
-  }
-  local msg_id = msg.id/2097152/0.5
-  https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/mnhvoise/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
+Abs = math.random(2,140); 
+local Text ='*تجميع مناوهيج . *'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'MNH ',url="t.me/wwwuw"}},
+}
+local msg_id = msg.id/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/mnhvoise/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
 if text == "متحركه" then
 Abs = math.random(2,140); 
 local Text ='*- تم اختيار متحركه لك*'
