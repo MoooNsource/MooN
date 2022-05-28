@@ -3598,7 +3598,7 @@ end
 local info_ = bot.getSupergroupMembers(msg.chat_id, "Administrators", "*", 0, 200)
 local list_ = info_.members
 for k, v in pairs(list_) do
-if info_.members[k].MooN.luatele == "chatMemberMooNCreator" then
+if info_.members[k].MooN.luatele == "chatMemberStatusCreator" then
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Creator", v.member_id.user_id)
 return bot.sendText(msg.chat_id,msg.id,"*- تم "..text.." بنجاح*","md",true)  
 end
@@ -3612,7 +3612,7 @@ end
 local info_ = bot.getSupergroupMembers(msg.chat_id, "Administrators", "*", 0, 200)
 local list_ = info_.members
 for k, v in pairs(list_) do
-if info_.members[k].MooN.luatele == "chatMemberMooNCreator" then
+if info_.members[k].MooN.luatele == "chatMemberStatusCreator" then
 local UserInfo = bot.getUser(v.member_id.user_id)
 if UserInfo.first_name == "" then
 bot.sendText(msg.chat_id,msg.id,"*- "..text.." حساب محذوف*","md",true)  
@@ -3634,7 +3634,7 @@ else
 custom = 'لا يوجد'
 end
 end
-if sm.MooN.luatele == "chatMemberMooNCreator"  then
+if sm.MooN.luatele == "chatMemberStatusCreator"  then
 gMooN = "المنشئ"
 elseif sm.MooN.luatele == "chatMemberMooNAdministrator" then
 gMooN = "المشرف"
@@ -3725,7 +3725,7 @@ end
 if text == 'معلوماتي' or text == 'موقعي' or text == 'صلاحياتي' then
 local UserInfo = bot.getUser(msg.sender.user_id)
 local MooNm = bot.getChatMember(msg.chat_id,msg.sender.user_id).MooN.luatele
-if MooNm == "chatMemberMooNCreator" then
+if MooNm == "chatMemberStatusCreator" then
 MooNmC = 'منشئ'
 elseif MooNm == "chatMemberMooNAdministrator" then
 MooNmC = 'مشرف'
@@ -3851,7 +3851,7 @@ bot.sendText(msg.chat_id,msg.id,"*- عذرا يجب ان تستخدم معرف �
 return false
 end
 sm = bot.getChatMember(msg.chat_id,UserId_Info.id)
-if sm.MooN.luatele == "chatMemberMooNCreator"  then
+if sm.MooN.luatele == "chatMemberStatusCreator"  then
 gMooN = "المنشئ"
 elseif sm.MooN.luatele == "chatMemberMooNAdministrator" then
 gMooN = "المشرف"
@@ -3869,7 +3869,7 @@ else
 uame = 'لا يوجد'
 end
 sm = bot.getChatMember(msg.chat_id,Remsg.sender.user_id)
-if sm.MooN.luatele == "chatMemberMooNCreator"  then
+if sm.MooN.luatele == "chatMemberStatusCreator"  then
 gMooN = "المنشئ"
 elseif sm.MooN.luatele == "chatMemberMooNAdministrator" then
 gMooN = "المشرف"
@@ -3890,7 +3890,7 @@ else
 uame = 'لا يوجد'
 end
 sm = bot.getChatMember(msg.chat_id,UserName)
-if sm.MooN.luatele == "chatMemberMooNCreator"  then
+if sm.MooN.luatele == "chatMemberStatusCreator"  then
 gMooN = "المنشئ"
 elseif sm.MooN.luatele == "chatMemberMooNAdministrator" then
 gMooN = "المشرف"
@@ -3934,7 +3934,7 @@ redis:del(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Addedmem")
 return false
 end
 if text == "منو ضافني" and not redis:get(bot_id..":"..msg.chat_id..":settings:addme") then
-if bot.getChatMember(msg.chat_id,msg.sender.user_id).MooN.luatele == "chatMemberMooNCreator" then
+if bot.getChatMember(msg.chat_id,msg.sender.user_id).MooN.luatele == "chatMemberStatusCreator" then
 bot.sendText(msg.chat_id,msg.id,"*- انت منشئ المجموعه*","md",true) 
 return false
 end
@@ -4261,7 +4261,7 @@ local list_ = info_.members
 y = 0
 for k, v in pairs(list_) do
 if info_.members[k].bot_info == nil then
-if info_.members[k].MooN.luatele == "chatMemberMooNCreator" then
+if info_.members[k].MooN.luatele == "chatMemberStatusCreator" then
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Creator",v.member_id.user_id) 
 else
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Administrator",v.member_id.user_id) 
@@ -4545,7 +4545,7 @@ if UserInfo.code == 400 or UserInfo.message == "Invalid user ID" then
 return false
 end
 sm = bot.getChatMember(msg.chat_id,usetid)
-if sm.MooN.luatele == "chatMemberMooNCreator"  then
+if sm.MooN.luatele == "chatMemberStatusCreator"  then
 gMooN = "المنشئ"
 elseif sm.MooN.luatele == "chatMemberMooNAdministrator" then
 gMooN = "المشرف"
@@ -4921,7 +4921,7 @@ return false
 else
 return false
 end
-if bot.getChatMember(msg.chat_id,usetid).MooN.luatele == "chatMemberMooNCreator" then
+if bot.getChatMember(msg.chat_id,usetid).MooN.luatele == "chatMemberStatusCreator" then
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Creator",usetid)
 end
 bot.sendText(msg.chat_id,msg.id,Reply_MooN(usetid,"*- "..tt.."*").yu,"md",true)  
@@ -6569,7 +6569,7 @@ return false
 else
 return false
 end
-if bot.getChatMember(msg.chat_id,UserName).MooN.luatele == "chatMemberMooNCreator" then
+if bot.getChatMember(msg.chat_id,UserName).MooN.luatele == "chatMemberStatusCreator" then
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Creator",UserName)
 end
 bot.sendText(msg.chat_id,msg.id,Reply_MooN(UserName,"*- "..tt.."*").yu,"md",true)  
@@ -6642,7 +6642,7 @@ return false
 else
 return false
 end
-if bot.getChatMember(msg.chat_id,UserId_Info.id).MooN.luatele == "chatMemberMooNCreator" then
+if bot.getChatMember(msg.chat_id,UserId_Info.id).MooN.luatele == "chatMemberStatusCreator" then
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Creator",UserId_Info.id)
 end
 bot.sendText(msg.chat_id,msg.id,Reply_MooN(UserId_Info.id,"*- "..tt.."*").yu,"md",true)  
@@ -6711,7 +6711,7 @@ return false
 else
 return false
 end
-if bot.getChatMember(msg.chat_id,Remsg.sender.user_id).MooN.luatele == "chatMemberMooNCreator" then
+if bot.getChatMember(msg.chat_id,Remsg.sender.user_id).MooN.luatele == "chatMemberStatusCreator" then
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Creator",Remsg.sender.user_id)
 end
 bot.sendText(msg.chat_id,msg.id,Reply_MooN(Remsg.sender.user_id,"*- "..tt.."*").yu,"md",true)  
@@ -8034,12 +8034,12 @@ return false
 end
 sm = bot.getChatMember(msg.chat_id,msg.sender.user_id)
 if not developer(msg) then
-if sm.MooN.luatele ~= "chatMemberMooNCreator" and sm.MooN.luatele ~= "chatMemberMooNAdministrator" then
+if sm.MooN.luatele ~= "chatMemberStatusCreator" and sm.MooN.luatele ~= "chatMemberMooNAdministrator" then
 bot.sendText(msg.chat_id,msg.id,"*- عذراً يجب أنْ تكون مشرف او مالك المجموعه*","md",true)  
 return false
 end
 end
-if sm.MooN.luatele == "chatMemberMooNCreator" then
+if sm.MooN.luatele == "chatMemberStatusCreator" then
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Creator",msg.sender.user_id)
 else
 redis:sadd(bot_id..":"..msg.chat_id..":MooN:Administrator",msg.sender.user_id)
@@ -8073,7 +8073,7 @@ return false
 end
 sm = bot.getChatMember(msg.chat_id,msg.sender.user_id)
 if not developer(msg) then
-if sm.MooN.luatele ~= "chatMemberMooNCreator" then
+if sm.MooN.luatele ~= "chatMemberStatusCreator" then
 bot.sendText(msg.chat_id,msg.id,"*- عذراً يجب أنْ تكون مالك المجموعه فقط*","md",true)  
 return false
 end
