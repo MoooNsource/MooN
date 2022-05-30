@@ -7982,7 +7982,7 @@ local Text = "تجمع مناوهيج ."
 Rrr = math.random(4,50)
 local m = "https://t.me/lpooopp/"..Rrr..""
 local rep = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=".. msg_chat_id .."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 end
 ----------------------------------------------------------------------------------------------------
 end
