@@ -4057,87 +4057,6 @@ data = {
 bot.sendText(msg.chat_id,msg.id,'*- قائمه الالعاب الاحترافيه اضغط للعب*',"md", true, false, false, false, reply_markup)
 end
 end
-if Redis:get(Status.."m3ani"..msg.sender.user_id) == "sendm3na" then
-	as = https.request('https://dev-Status.tk/Apis/Mean.php?Name='..URL.escape(text)..'')
-	mn = JSON.decode(as)
-	k = mn.meaning
-	LuaTele.sendText(msg_chat_id,msg_id,k,"md",true) 
-	Redis:del(Status.."m3ani"..msg.sender.user_id) 
-	end
-	if text == "معنى اسمي" and Redis:get(Status..msg_chat_id.."mean:cmd") then 
-	LuaTele.sendText(msg_chat_id,msg_id,"*- ارسل اسمك الان  *","md",true) 
-	Redis:set(Status.."m3ani"..msg.sender.user_id,"sendm3na") 
-	end
-	if text and text:match("^معنى (.*)$") and Redis:get(Status..msg_chat_id.."mean:cmd") then 
-	local TextName = text:match("^معنى (.*)$")
-	as = https.request('https://dev-Status.tk/Apis/Mean.php?Name='..URL.escape(TextName)..'')
-	mn = JSON.decode(as)
-	k = mn.meaning
-	LuaTele.sendText(msg_chat_id,msg_id,k,"md",true) 
-	end
-	if text == "تفعيل معاني الاسماء" then
-	if not msg.Manger then
-	return LuaTele.sendText(msg_chat_id,msg_id,'\n*- هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
-	end
-	if Redis:get(Status..msg_chat_id.."mean:cmd") then
-	LuaTele.sendText(msg_chat_id,msg_id, '*- تم تفعيل معاني الاسماء مسبقا*',"md")
-	else
-	Redis:set(Status..msg_chat_id.."mean:cmd",true)
-	LuaTele.sendText(msg_chat_id,msg_id, '*- تم تفعيل معاني الاسماء *',"md")
-	end
-	end
-	if text == "تعطيل معاني الاسماء" then
-	if not msg.Manger then
-	return LuaTele.sendText(msg_chat_id,msg_id,'\n*- هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
-	end
-	if not Redis:get(Status..msg_chat_id.."mean:cmd") then
-	LuaTele.sendText(msg_chat_id,msg_id, '*- تم تعطيل معاني الاسماء مسبقا*',"md")
-	else
-	Redis:del(Status..msg_chat_id.."mean:cmd")
-	LuaTele.sendText(msg_chat_id,msg_id, '*- تم تعطيل معاني الاسماء *',"md")
-	end
-	end
-if text == "شخصيات" or text == "مشاهير" then
-if Redis:get(Status.."Status:Games"..msg.chat_id) then
-KlamSpeed = {"شوان","سام","ايد شيرين","جاستين","اريانا","سام سميث","ايد","جاستين","معزه","ميسي","صلاح","محمد صلاح","احمد عز","سونيك","كريستيانو","كريستيانو رونالدو","رامز جلال","امير كراره","ويجز","بابلو","تامر حسني","ابيو","شيرين","نانسي عجرم","محمد رمضان","احمد حلمي","محمد هنيدي","حسن حسني","حماقي","احمد مكي"};
-name = KlamSpeed[math.random(#KlamSpeed)]
-Redis:set(Status.."mshaher"..msg.chat_id,name)
-name = string.gsub(name,"شوان","https://t.me/HC6HH/8")
-name = string.gsub(name,"سام","https://t.me/HC6HH/7")
-name = string.gsub(name,"سام سميث","https://t.me/HC6HH/7")
-name = string.gsub(name,"ايد شيرين","https://t.me/HC6HH/6")
-name = string.gsub(name,"ايد","https://t.me/HC6HH/6")
-name = string.gsub(name,"جاستين","https://t.me/HC6HH/4")
-name = string.gsub(name,"جاستين بيبر","https://t.me/HC6HH/4")
-name = string.gsub(name,"اريانا","https://t.me/HC6HH/5")
-name = string.gsub(name,"ميسي","https://t.me/HC6HH/10")
-name = string.gsub(name,"معزه","https://t.me/HC6HH/10")
-name = string.gsub(name,"صلاح","https://t.me/HC6HH/9")
-name = string.gsub(name,"محمد صلاح","https://t.me/HC6HH/9")
-name = string.gsub(name,"احمد عز","https://t.me/HC6HH/12")
-name = string.gsub(name,"كريم عبدالعزيز","https://t.me/HC6HH/11")
-name = string.gsub(name,"كريستيانو رونالدو","https://t.me/HC6HH/13")
-name = string.gsub(name,"كريستيانو","https://t.me/HC6HH/13")
-name = string.gsub(name,"امير كراره","https://t.me/HC6HH/14")
-name = string.gsub(name,"رامز جلال","https://t.me/HC6HH/15")
-name = string.gsub(name,"ويجز","https://t.me/HC6HH/16")
-name = string.gsub(name,"بابلو","https://t.me/HC6HH/17")
-name = string.gsub(name,"جوني سينس","https://t.me/HC6HH/18")
-name = string.gsub(name,"سونيك","https://t.me/HC6HH/19")
-name = string.gsub(name,"ابيو","https://t.me/HC6HH/20")
-name = string.gsub(name,"شيرين","https://t.me/HC6HH/21")
-name = string.gsub(name,"نانسي عجرم","https://t.me/HC6HH/22")
-name = string.gsub(name,"محمد رمضان","https://t.me/HC6HH/25")
-name = string.gsub(name,"احمد حلمي","https://t.me/HC6HH/26")
-name = string.gsub(name,"محمد هنيدي","https://t.me/HC6HH/27")
-name = string.gsub(name,"حسن حسني","https://t.me/HC6HH/28")
-name = string.gsub(name,"احمد مكي","https://t.me/HC6HH/29")
-name = string.gsub(name,"تامر حسني","https://t.me/HC6HH/30")
-name = string.gsub(name,"حماقي","https://t.me/HC6HH/31")
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg.chat_id.."&photo="..name.."&caption="..URL.escape("اسرع واحد يقول اسم هذا الفنان").."&reply_to_message_id="..(msg.id/2097152/0.5))
---return LuaTele.sendText(msg_chat_id,msg_id,"˛ : اسرع واحد يرتبها ~ {"..name.."}","md",true)  
-end
-end
 if not redis:get(bot_id..":"..msg.chat_id..":settings:entertainment") then
 if text == "شنو رئيك بهذا" or text == "شنو رائيك بهذ" or text == "شنو رئيك بهذ" or text == "شنو رائيك بهذ" then
 local texting = {"ادب سسز يباوع علي بنات ??🥺"," مو خوش ولد 😶","زاحف وما احبه 😾😹","شهل سرسري هذا🤨","امووووع انا🤤","عنفسسسيه هذاا🤮","شايف نفسه فد خريه🤨","هااا كرششتي😉","زووف اوافق بدون مهرر🙊","زربه بيكم ع هل ذووق😐","خليكوم يسبح ويجي🤧","وااصل مرحله هذا","راسه مربع شعجبج بي😕👌🏿"}
@@ -8049,15 +7968,16 @@ return https.request("https://api.telegram.org/bot"..Token.."/sendVideo?chat_id=
 end
 end
 if text == "بصمات مناوهيج" then
-Abs = math.random(2,140); 
-local Text ='*تجمع مناوهيج . *'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'MNH ',url="t.me/wwwuw"}},
-}	
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/mnhvoise/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
+	Abs = math.random(2,140); 
+	local Text ='*تجميع مناوهيج . *'
+	keyboard = {} 
+	keyboard.inline_keyboard = {
+	{{text = 'MNH ',url="t.me/wwwuw"}},
+	}
+	local msg_id = msg.id/2097152/0.5
+	https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/mnhvoise/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+	end
+
 if msg.content.text.text == "مناوهيج" or text == 'صور مناوهيج' and tonumber(msg.reply_to_message_id) == 0 then
 local Text = "تجمع مناوهيج ."
 Rrr = math.random(4,50)
@@ -8069,8 +7989,8 @@ keyboard.inline_keyboard = {
 }
 local msgg = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token.."/sendPhoto?chat_id="..msg.chat_id.."&photo=https://t.me/lpooopp/"..math.random(2,135).."&caption="..URL.escape("- تم اختيار الرمزيه لك").."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
+		end
+		end
 ----------------------------------------------------------------------------------------------------
 end
 ----------------------------------------------------------------------------------------------------
@@ -8181,6 +8101,10 @@ else
 bot.sendText(msg.chat_id,msg.id,'*- المجموعه معطله بالفعل*',"md", true)
 end
 end
+----------------------------------------------------------------------------------------------------
+end --- end Run
+end --- end Run
+----------------------------------------------------------------------------------------------------
 function Call(data)
 if redis:get(bot_id..":Notice") then
 if data and data.luatele and data.luatele == "updateSupergroup" then
