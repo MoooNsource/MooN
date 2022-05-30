@@ -8376,7 +8376,6 @@ redis:sadd(bot_id..":"..data.message.chat_id..":mediaAude:ids",data.message.id)
 end
 end
 --
-end
 if text == "حذف رد شفاف" then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n- هاذا الامر يخص ( '..Controller_Num(7)..' )  ',"md",true)  
@@ -8393,32 +8392,32 @@ data = {
 },
 }
 }
-Redis:set(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,"true2")
-return LuaTele.sendText(msg_chat_id,msg_id,"- الان ارسل الكلمه لحذفها من الردود الشفافه","md",false, false, false, false, reply_markup)
+Redis:set(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,"true2")
+return LuaTele.sendText(msg_chat_id,msg_id,"- حلو , الحين ارسل الكلمه لحذفها من الردود الانلاين","md",false, false, false, false, reply_markup)
 end 
 if text and text:match("^(.*)$") then
-if Redis:get(Status.."Set:Manager:rd:inline"..msg..sender.user_id..":"..msg_chat_id.."") == "true2" then
-Redis:del(Status.."Add:Rd:Manager:Gif:inline"..text..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Vico:inline"..text..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
-Redis:del(Status.."Add:Rd:Manager:Text:inline"..text..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Video:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)  
-Redis:del(Status.."Add:Rd:Manager:File:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Audio:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
-Redis:del(Status.."Rd:Manager:inline:text"..text..msg_chat_id)
-Redis:del(Status.."Rd:Manager:inline:link"..text..msg_chat_id)
-  Redis:del(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id.."")
-  Redis:srem(Status.."List:Manager:inline"..msg_chat_id.."", text)
-  LuaTele.sendText(msg_chat_id,msg_id,"- ابشر حذفت الرد من الردود الشفافه ","md",true)  
+if Redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id.."") == "true2" then
+redis:get(FDFGERB.."Add:Rd:Manager:Gif:inline"..text..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Vico:inline"..text..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
+redis:get(FDFGERB.."Add:Rd:Manager:Text:inline"..text..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Video:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)  
+redis:get(FDFGERB.."Add:Rd:Manager:File:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Audio:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Rd:Manager:inline:text"..text..msg_chat_id)
+redis:get(FDFGERB.."Rd:Manager:inline:link"..text..msg_chat_id)
+  redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id.."")
+  Redis:srem(FDFGERB.."List:Manager:inline"..msg_chat_id.."", text)
+  LuaTele.sendText(msg_chat_id,msg_id,"- ابشر حذفت الرد من الردود الانلاين ","md",true)  
   return false
   end
   end
-  if text == ("مسح الردود الشفافه") then
+  if text == ("مسح الردود الانلاين") then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n- هاذا الامر يخص ( '..Controller_Num(6)..' )  ',"md",true)  
 end
@@ -8426,31 +8425,31 @@ if ChannelJoin(msg) == false then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/EE3WW'}, },}}
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n- عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
-local list = Redis:smembers(Status.."List:Manager:inline"..msg_chat_id.."")
+local list = Redis:smembers(FDFGERB.."List:Manager:inline"..msg_chat_id.."")
 for k,v in pairs(list) do
-Redis:del(Status.."Add:Rd:Manager:Gif:inline"..v..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Vico:inline"..v..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Stekrs:inline"..v..msg_chat_id)     
-Redis:del(Status.."Add:Rd:Manager:Text:inline"..v..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Photo:inline"..v..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Photoc:inline"..v..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Video:inline"..v..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Videoc:inline"..v..msg_chat_id)  
-Redis:del(Status.."Add:Rd:Manager:File:inline"..v..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:video_note:inline"..v..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Audio:inline"..v..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Audioc:inline"..v..msg_chat_id)
-Redis:del(Status.."Rd:Manager:inline:v"..v..msg_chat_id)
-Redis:del(Status.."Rd:Manager:inline:link"..v..msg_chat_id)
-Redis:del(Status.."List:Manager:inline"..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Gif:inline"..v..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Vico:inline"..v..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Stekrs:inline"..v..msg_chat_id)     
+redis:get(FDFGERB.."Add:Rd:Manager:Text:inline"..v..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Photo:inline"..v..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Photoc:inline"..v..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Video:inline"..v..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Videoc:inline"..v..msg_chat_id)  
+redis:get(FDFGERB.."Add:Rd:Manager:File:inline"..v..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:video_note:inline"..v..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Audio:inline"..v..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Audioc:inline"..v..msg_chat_id)
+redis:get(FDFGERB.."Rd:Manager:inline:v"..v..msg_chat_id)
+redis:get(FDFGERB.."Rd:Manager:inline:link"..v..msg_chat_id)
+redis:get(FDFGERB.."List:Manager:inline"..msg_chat_id)
 end
-return LuaTele.sendText(msg_chat_id,msg_id,"- تم مسح قائمه الشفافه","md",true)  
+return LuaTele.sendText(msg_chat_id,msg_id,"- تم مسح قائمه الانلاين","md",true)  
 end
-if text == "اضف رد شفاف" then
+if text == "اضف رد انلاين" then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n- هاذا الامر يخص ( '..Controller_Num(7)..' )  ',"md",true)  
 end
-Redis:set(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,true)
+Redis:set(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,true)
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
@@ -8459,27 +8458,27 @@ data = {
 },
 }
 }
-return LuaTele.sendText(msg_chat_id,msg_id,"- ارسل الرد الان اكتب،الغاء الالغاء الامر ","md",false, false, false, false, reply_markup)
+return LuaTele.sendText(msg_chat_id,msg_id,"- حلو , ارسل الرد الحين اكتب،الغاء الالغاء الامر ","md",false, false, false, false, reply_markup)
   end
-  if text and text:match("^(.*)$") and tonumber(msg.sender.user_id) ~= tonumber(Status) then
-if Redis:get(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "true" then
-Redis:set(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,"true1")
-Redis:set(Status.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id, text)
-Redis:del(Status.."Add:Rd:Manager:Gif:inline"..text..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Vico:inline"..text..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
-Redis:del(Status.."Add:Rd:Manager:Text:inline"..text..msg_chat_id)   
-Redis:del(Status.."Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Video:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)  
-Redis:del(Status.."Add:Rd:Manager:File:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Audio:inline"..text..msg_chat_id)
-Redis:del(Status.."Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
-Redis:del(Status.."Rd:Manager:inline:text"..text..msg_chat_id)
-Redis:del(Status.."Rd:Manager:inline:link"..text..msg_chat_id)
-Redis:sadd(Status.."List:Manager:inline"..msg_chat_id.."", text)
+  if text and text:match("^(.*)$") and tonumber(msg.sender.user_id) ~= tonumber(FDFGERB) then
+if Redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "true" then
+Redis:set(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,"true1")
+Redis:set(FDFGERB.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id, text)
+redis:get(FDFGERB.."Add:Rd:Manager:Gif:inline"..text..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Vico:inline"..text..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
+redis:get(FDFGERB.."Add:Rd:Manager:Text:inline"..text..msg_chat_id)   
+redis:get(FDFGERB.."Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Video:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)  
+redis:get(FDFGERB.."Add:Rd:Manager:File:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Audio:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
+redis:get(FDFGERB.."Rd:Manager:inline:text"..text..msg_chat_id)
+redis:get(FDFGERB.."Rd:Manager:inline:link"..text..msg_chat_id)
+Redis:sadd(FDFGERB.."List:Manager:inline"..msg_chat_id.."", text)
 LuaTele.sendText(msg_chat_id,msg_id,[[
 - ارسل لي الرد سواء كان 
 ❨ ملف - ملصق - متحركه - صوره
@@ -8488,33 +8487,33 @@ LuaTele.sendText(msg_chat_id,msg_id,[[
 return false
 end
 end
-if Redis:get(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "true1" and tonumber(msg.sender.user_id) ~= tonumber(Status) then
-Redis:del(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id)
-Redis:set(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,"set_inline")
+if Redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "true1" and tonumber(msg.sender.user_id) ~= tonumber(FDFGERB) then
+redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id)
+Redis:set(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,"set_inline")
 if text or msg.content.video_note or msg.content.document or msg.content.audio or msg.content.video or msg.content.voice_note or msg.content.sticker or msg.content.animation or msg.content.photo then
-local anubis = Redis:get(Status.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id)
+local anubis = Redis:get(FDFGERB.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id)
 if msg.content.text then 
 text = text:gsub('"',"") 
 text = text:gsub('"',"") 
 text = text:gsub("`","") 
 text = text:gsub("*","") 
-Redis:set(Status.."Add:Rd:Manager:Text:inline"..anubis..msg_chat_id, text)
+Redis:set(FDFGERB.."Add:Rd:Manager:Text:inline"..anubis..msg_chat_id, text)
 elseif msg.content.sticker then 
-Redis:set(Status.."Add:Rd:Manager:Stekrs:inline"..anubis..msg_chat_id, msg.content.sticker.sticker.remote.id)  
+Redis:set(FDFGERB.."Add:Rd:Manager:Stekrs:inline"..anubis..msg_chat_id, msg.content.sticker.sticker.remote.id)  
 elseif msg.content.voice_note then
-Redis:set(Status.."Add:Rd:Manager:Vico:inline"..anubis..msg_chat_id, msg.content.voice_note.voice.remote.id)
+Redis:set(FDFGERB.."Add:Rd:Manager:Vico:inline"..anubis..msg_chat_id, msg.content.voice_note.voice.remote.id)
 elseif msg.content.audio then
-Redis:set(Status.."Add:Rd:Manager:Audio:inline"..anubis..msg_chat_id, msg.content.audio.audio.remote.id)
-Redis:set(Status.."Add:Rd:Manager:Audioc:inline"..anubis..msg_chat_id, msg.content.caption.text)
+Redis:set(FDFGERB.."Add:Rd:Manager:Audio:inline"..anubis..msg_chat_id, msg.content.audio.audio.remote.id)
+Redis:set(FDFGERB.."Add:Rd:Manager:Audioc:inline"..anubis..msg_chat_id, msg.content.caption.text)
 elseif msg.content.document then
-Redis:set(Status.."Add:Rd:Manager:File:inline"..anubis..msg_chat_id, msg.content.document.document.remote.id)
+Redis:set(FDFGERB.."Add:Rd:Manager:File:inline"..anubis..msg_chat_id, msg.content.document.document.remote.id)
 elseif msg.content.animation then
-Redis:set(Status.."Add:Rd:Manager:Gif:inline"..anubis..msg_chat_id, msg.content.animation.animation.remote.id)
+Redis:set(FDFGERB.."Add:Rd:Manager:Gif:inline"..anubis..msg_chat_id, msg.content.animation.animation.remote.id)
 elseif msg.content.video_note then
-Redis:set(Status.."Add:Rd:Manager:video_note:inline"..anubis..msg_chat_id, msg.content.video_note.video.remote.id)
+Redis:set(FDFGERB.."Add:Rd:Manager:video_note:inline"..anubis..msg_chat_id, msg.content.video_note.video.remote.id)
 elseif msg.content.video then
-Redis:set(Status.."Add:Rd:Manager:Video:inline"..anubis..msg_chat_id, msg.content.video.video.remote.id)
-Redis:set(Status.."Add:Rd:Manager:Videoc:inline"..anubis..msg_chat_id, msg.content.caption.text)
+Redis:set(FDFGERB.."Add:Rd:Manager:Video:inline"..anubis..msg_chat_id, msg.content.video.video.remote.id)
+Redis:set(FDFGERB.."Add:Rd:Manager:Videoc:inline"..anubis..msg_chat_id, msg.content.caption.text)
 elseif msg.content.photo then
 if msg.content.photo.sizes[1].photo.remote.id then
 idPhoto = msg.content.photo.sizes[1].photo.remote.id
@@ -8523,42 +8522,42 @@ idPhoto = msg.content.photo.sizes[2].photo.remote.id
 elseif msg.content.photo.sizes[3].photo.remote.id then
 idPhoto = msg.content.photo.sizes[3].photo.remote.id
 end
-Redis:set(Status.."Add:Rd:Manager:Photo:inline"..anubis..msg_chat_id, idPhoto)
-Redis:set(Status.."Add:Rd:Manager:Photoc:inline"..anubis..msg_chat_id, msg.content.caption.text)
+Redis:set(FDFGERB.."Add:Rd:Manager:Photo:inline"..anubis..msg_chat_id, idPhoto)
+Redis:set(FDFGERB.."Add:Rd:Manager:Photoc:inline"..anubis..msg_chat_id, msg.content.caption.text)
 end
-LuaTele.sendText(msg_chat_id,msg_id,"- ارسل النص للزر ","md",true)
+LuaTele.sendText(msg_chat_id,msg_id,"- حلو , ارسل الكلام اللي داخل الزر","md",true)
 return false
 end
 end
-if text and Redis:get(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "set_inline" then
-Redis:set(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id, "set_link")
-local anubis = Redis:get(Status.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id)
-Redis:set(Status.."Rd:Manager:inline:text"..anubis..msg_chat_id, text)
-LuaTele.sendText(msg_chat_id,msg_id,"- الان ارسل الرابط","md",true)
+if text and Redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "set_inline" then
+Redis:set(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id, "set_link")
+local anubis = Redis:get(FDFGERB.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id)
+Redis:set(FDFGERB.."Rd:Manager:inline:text"..anubis..msg_chat_id, text)
+LuaTele.sendText(msg_chat_id,msg_id,"- حلو , الحين ارسل الرابط","md",true)
 return false
 end
-if text and Redis:get(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "set_link" then
-Redis:del(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id)
-local anubis = Redis:get(Status.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id)
-Redis:set(Status.."Rd:Manager:inline:link"..anubis..msg_chat_id, text)
+if text and Redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id) == "set_link" then
+redis:get(FDFGERB.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id)
+local anubis = Redis:get(FDFGERB.."Text:Manager:inline"..msg.sender.user_id..":"..msg_chat_id)
+Redis:set(FDFGERB.."Rd:Manager:inline:link"..anubis..msg_chat_id, text)
 LuaTele.sendText(msg_chat_id,msg_id,"- تم اضافه الرد بنجاح","md",true)
 return false
 end
-if text and not Redis:get(Status.."Status:Reply:inline"..msg_chat_id) then
-local btext = Redis:get(Status.."Rd:Manager:inline:text"..text..msg_chat_id)
-local blink = Redis:get(Status.."Rd:Manager:inline:link"..text..msg_chat_id)
-local anemi = Redis:get(Status.."Add:Rd:Manager:Gif:inline"..text..msg_chat_id) 
-local veico = Redis:get(Status.."Add:Rd:Manager:Vico:inline"..text..msg_chat_id) 
-local stekr = Redis:get(Status.."Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
-local Texingt = Redis:get(Status.."Add:Rd:Manager:Text:inline"..text..msg_chat_id) 
-local photo = Redis:get(Status.."Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
-local photoc = Redis:get(Status.."Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
-local video = Redis:get(Status.."Add:Rd:Manager:Video:inline"..text..msg_chat_id)
-local videoc = Redis:get(Status.."Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)
-local document = Redis:get(Status.."Add:Rd:Manager:File:inline"..text..msg_chat_id)
-local audio = Redis:get(Status.."Add:Rd:Manager:Audio:inline"..text..msg_chat_id)
-local audioc = Redis:get(Status.."Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
-local video_note = Redis:get(Status.."Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
+if text and not Redis:get(FDFGERB.."Status:Reply:inline"..msg_chat_id) then
+local btext = Redis:get(FDFGERB.."Rd:Manager:inline:text"..text..msg_chat_id)
+local blink = Redis:get(FDFGERB.."Rd:Manager:inline:link"..text..msg_chat_id)
+local anemi = Redis:get(FDFGERB.."Add:Rd:Manager:Gif:inline"..text..msg_chat_id) 
+local veico = Redis:get(FDFGERB.."Add:Rd:Manager:Vico:inline"..text..msg_chat_id) 
+local stekr = Redis:get(FDFGERB.."Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
+local Texingt = Redis:get(FDFGERB.."Add:Rd:Manager:Text:inline"..text..msg_chat_id) 
+local photo = Redis:get(FDFGERB.."Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
+local photoc = Redis:get(FDFGERB.."Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
+local video = Redis:get(FDFGERB.."Add:Rd:Manager:Video:inline"..text..msg_chat_id)
+local videoc = Redis:get(FDFGERB.."Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)
+local document = Redis:get(FDFGERB.."Add:Rd:Manager:File:inline"..text..msg_chat_id)
+local audio = Redis:get(FDFGERB.."Add:Rd:Manager:Audio:inline"..text..msg_chat_id)
+local audioc = Redis:get(FDFGERB.."Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
+local video_note = Redis:get(FDFGERB.."Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
 data = {
@@ -8569,10 +8568,10 @@ data = {
 }
 if Texingt then 
 local UserInfo = LuaTele.getUser(msg.sender.user_id)
-local NumMsg = Redis:get(Status..'Num:Message:User'..msg_chat_id..':'..msg.sender.user_id) or 0
+local NumMsg = Redis:get(FDFGERB..'Num:Message:User'..msg_chat_id..':'..msg.sender.user_id) or 0
 local TotalMsg = Total_message(NumMsg) 
 local Status_Gps = msg.Name_Controller
-local NumMessageEdit = Redis:get(Status..'Num:Message:Edit'..msg_chat_id..msg.sender.user_id) or 0
+local NumMessageEdit = Redis:get(FDFGERB..'Num:Message:Edit'..msg_chat_id..msg.sender.user_id) or 0
 local Texingt = Texingt:gsub('#username',(UserInfo.username or 'لا يوجد')) 
 local Texingt = Texingt:gsub('#name',UserInfo.first_name)
 local Texingt = Texingt:gsub('#id',msg.sender.user_id)
@@ -8606,7 +8605,7 @@ if audio then
 LuaTele.sendAudio(msg_chat_id, msg.id, audio, audioc, "md", nil, nil, nil, nil, nil, nil, nil, nil,reply_markup) 
 end
 end
-if text == ("الردود الشفافه") then
+if text == ("الردود الانلاين") then
 if not msg.Addictive then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n- هاذا الامر يخص  '..Controller_Num(6)..'  ',"md",true)  
 end
@@ -8614,32 +8613,32 @@ if ChannelJoin(msg) == false then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اضغط للاشتراك', url = 't.me/EE3WW'}, },}}
 return LuaTele.sendText(msg.chat_id,msg.id,'*\n- عليك الاشتراك في قناة البوت لاستخذام الاوامر*',"md",false, false, false, false, reply_markup)
 end
-local list = Redis:smembers(Status.."List:Manager:inline"..msg_chat_id.."")
-text = "- قائمه الردود الشفافه \n — — — — — — — — — —  \n"
+local list = Redis:smembers(FDFGERB.."List:Manager:inline"..msg_chat_id.."")
+text = "- قائمه الردود الانلاين \n━━━━━\n"
 for k,v in pairs(list) do
-if Redis:get(Status.."Add:Rd:Manager:Gif:inline"..v..msg_chat_id) then
+if Redis:get(FDFGERB.."Add:Rd:Manager:Gif:inline"..v..msg_chat_id) then
 db = "متحركه -"
-elseif Redis:get(Status.."Add:Rd:Manager:Vico:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:Vico:inline"..v..msg_chat_id) then
 db = "بصمه -"
-elseif Redis:get(Status.."Add:Rd:Manager:Stekrs:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:Stekrs:inline"..v..msg_chat_id) then
 db = "ملصق -"
-elseif Redis:get(Status.."Add:Rd:Manager:Text:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:Text:inline"..v..msg_chat_id) then
 db = "رساله -"
-elseif Redis:get(Status.."Add:Rd:Manager:Photo:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:Photo:inline"..v..msg_chat_id) then
 db = "صوره -"
-elseif Redis:get(Status.."Add:Rd:Manager:Video:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:Video:inline"..v..msg_chat_id) then
 db = "فيديو -"
-elseif Redis:get(Status.."Add:Rd:Manager:File:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:File:inline"..v..msg_chat_id) then
 db = "ملف -"
-elseif Redis:get(Status.."Add:Rd:Manager:Audio:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:Audio:inline"..v..msg_chat_id) then
 db = "اغنيه -"
-elseif Redis:get(Status.."Add:Rd:Manager:video_note:inline"..v..msg_chat_id) then
+elseif Redis:get(FDFGERB.."Add:Rd:Manager:video_note:inline"..v..msg_chat_id) then
 db = "بصمه فيديو -"
 end
 text = text..""..k.." » {"..v.."} » {"..db.."}\n"
 end
 if #list == 0 then
-text = "- لايوجد ردود شفاف"
+text = "- مافيه ردود انلاين"
 end
 return LuaTele.sendText(msg_chat_id,msg_id,"["..text.."]","md",true)  
 end
