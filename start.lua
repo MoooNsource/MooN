@@ -7908,7 +7908,7 @@ return https.request("https://api.telegram.org/bot"..Token.."/sendVideo?chat_id=
 end
 end
 if msg.content.text then
-if msg.content.text.text == "رمزيه" and tonumber(msg.reply_to_message_id) == 0 then
+if msg.content.text.text == "صوره" and tonumber(msg.reply_to_message_id) == 0 then
 if redis:get(bot_id..":"..msg.chat_id..":Features") then
 return bot.sendText(msg.chat_id,msg.id,"*- تم تعطيل المميزات بواسطه المدراء*","md",true)  
 end
@@ -7977,16 +7977,17 @@ if text == "بصمات مناوهيج" then
 	local msg_id = msg.id/2097152/0.5
 	https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/mnhvoise/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 	end
-	if text == " مناوهيج" then
-		Abs = math.random(2,140); 
-		local Text ='*تجمع مناوهيج . *'
-		keyboard = {} 
-		keyboard.inline_keyboard = {
-		{{text = 'MNH ',url="t.me/wwwuw"}},
-		}
-		local msg_id = msg.id/2097152/0.5
-		https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/lpooopp/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-		end
+if msg.content.text.text == "مناوهيج" and tonumber(msg.reply_to_message_id) == 0 then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'MNH', url="t.me/wwwuw"}
+},
+}
+local msgg = msg.id/2097152/0.5
+return https.request("https://api.telegram.org/bot"..Token.."/sendPhoto?chat_id="..msg.chat_id.."&photo=https://t.me/lpooopp/"..math.random(2,135).."&caption="..URL.escape("تحمع مناوهيج .").."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
 ----------------------------------------------------------------------------------------------------
 end
 ----------------------------------------------------------------------------------------------------
