@@ -2898,12 +2898,12 @@ end
 if text == "الاوامر" then    
 reply_markup = bot.replyMarkup{
 type = 'inline',data = {
-{{text = "ᴘʀᴏᴛᴇᴄᴛɪᴏɴ¹" ,data="Amr_"..msg.sender.user_id.."_1"},{text = "ѕᴇᴛᴛɪɴɢѕ²",data="Amr_"..msg.sender.user_id.."_2"}},
-{{text = "ᴏᴘᴇɴ /ᴄʟᴏѕᴇ³",data="Amr_"..msg.sender.user_id.."_3"},{text ="ᴏᴛʜᴇʀѕ⁴",data="Amr_"..msg.sender.user_id.."_4"}},
+{{text = "ᴘʀᴏᴛᴇᴄᴛɪᴏɴ¹" ,data="Amr_"..msg.sender.user_id.."_1"},{text = "𝗌𝖾𝗍𝗍𝗂𝗇𝗀𝗌",data="Amr_"..msg.sender.user_id.."_2"}},
+{{text = "𝗈𝗉𝖾𝗇 : 𝖼𝗅𝗈𝗌𝖾",data="Amr_"..msg.sender.user_id.."_3"},{text ="𝗈𝗍𝗁𝖾𝗋𝗌",data="Amr_"..msg.sender.user_id.."_4"}},
 {{text = 'MNH',url="t.me/wwwuw"}},
 }
 }
-bot.sendText(msg.chat_id,msg.id,"*- قائمه الاوامر\n *— — — — — — — — — —  *\n- م1 ( اوامر الحمايه \n- م2 ( اوامر إعدادات المجموعه )\n- م3 ( اوامر القفل والفتح )\n- م4 ( اوامر اخرى )*","md", true, false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,"*- قائمه الاوامر\n *— — — — — — — — — —  *\n- م1 ( اوامر الحمايه )\n- م2 ( اوامر إعدادات المجموعه )\n- م3 ( اوامر القفل والفتح )\n- م4 ( اوامر اخرى )*","md", true, false, false, false, reply_markup)
 end
 if text == "الاعدادات" then    
 reply_markup = bot.replyMarkup{
