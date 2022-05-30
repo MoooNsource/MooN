@@ -8181,10 +8181,6 @@ else
 bot.sendText(msg.chat_id,msg.id,'*- المجموعه معطله بالفعل*',"md", true)
 end
 end
-----------------------------------------------------------------------------------------------------
-end 
-end 
-----------------------------------------------------------------------------------------------------
 function Call(data)
 if redis:get(bot_id..":Notice") then
 if data and data.luatele and data.luatele == "updateSupergroup" then
