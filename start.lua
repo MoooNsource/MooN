@@ -8397,7 +8397,7 @@ Redis:set(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id,
 return LuaTele.sendText(msg_chat_id,msg_id,"- الان ارسل الكلمه لحذفها من الردود الشفافه","md",false, false, false, false, reply_markup)
 end 
 if text and text:match("^(.*)$") then
-if Redis:get(Status.."Set:Manager:rd:inline"..msg.sender.user_id..":"..msg_chat_id.."") == "true2" then
+if Redis:get(Status.."Set:Manager:rd:inline"..msg..sender.user_id..":"..msg_chat_id.."") == "true2" then
 Redis:del(Status.."Add:Rd:Manager:Gif:inline"..text..msg_chat_id)   
 Redis:del(Status.."Add:Rd:Manager:Vico:inline"..text..msg_chat_id)   
 Redis:del(Status.."Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
