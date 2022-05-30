@@ -2903,7 +2903,7 @@ type = 'inline',data = {
 {{text = 'MNH',url="t.me/wwwuw"}},
 }
 }
-bot.sendText(msg.chat_id,msg.id,"*- قائمه الاوامر\n *— — — — — — — — — —  *\n-( م1 ( اوامر الحمايه \n- م2 ( اوامر إعدادات المجموعه )\n- م3 ( اوامر القفل والفتح )\n- م4 ( اوامر اخرى )*","md", true, false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,"*- قائمه الاوامر\n *— — — — — — — — — —  *\n- م1 ( اوامر الحمايه) \n- م2 ( اوامر إعدادات المجموعه )\n- م3 ( اوامر القفل والفتح )\n- م4 ( اوامر اخرى )*","md", true, false, false, false, reply_markup)
 end
 if text == "الاعدادات" then    
 reply_markup = bot.replyMarkup{
