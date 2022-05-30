@@ -7977,19 +7977,12 @@ if text == "بصمات مناوهيج" then
 	local msg_id = msg.id/2097152/0.5
 	https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/mnhvoise/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 	end
-
-if msg.content.text.text == "مناوهيج" or text == 'صور مناوهيج' and tonumber(msg.reply_to_message_id) == 0 then
-local Text = "تجمع مناوهيج ."
-Rrr = math.random(4,50)
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MNH', url="t.me/wwwuw"}
-},
-}
-local msgg = msg.id/2097152/0.5
-return https.request("https://api.telegram.org/bot"..Token.."/sendPhoto?chat_id="..msg.chat_id.."&photo=https://t.me/lpooopp/"..math.random(2,135).."&caption="..URL.escape("- تم اختيار الرمزيه لك").."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-		end
+	if text == "مناوهيج" or text == 'صور مناوهيج' then
+		local t = "تجمع مناوهيج ."
+		Rrr = math.random(4,50)
+		local m = "https://t.me/lpooopp/"..Rrr..""
+		local rep = msg.id/2097152/0.5
+		https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
 		end
 ----------------------------------------------------------------------------------------------------
 end
