@@ -2898,12 +2898,12 @@ end
 if text == "الاوامر" then    
 reply_markup = bot.replyMarkup{
 type = 'inline',data = {
-{{text = "𝗉𝗋𝗈𝗍𝖾𝖼𝗍𝗂𝗈𝗇" ,data="Amr_"..msg.sender.user_id.."_1"},{text = "𝗌𝖾𝗍𝗍𝗂𝗇𝗀𝗌",data="Amr_"..msg.sender.user_id.."_2"}},
-{{text = "𝗈𝗉𝖾𝗇 : 𝖼𝗅𝗈𝗌𝖾 ",data="Amr_"..msg.sender.user_id.."_3"},{text ="𝗈𝗍𝗁𝖾𝗋𝗌",data="Amr_"..msg.sender.user_id.."_4"}},
+{{text = "ᴘʀᴏᴛᴇᴄᴛɪᴏɴ¹" ,data="Amr_"..msg.sender.user_id.."_1"},{text = "ѕᴇᴛᴛɪɴɢѕ²",data="Amr_"..msg.sender.user_id.."_2"}},
+{{text = "ᴏᴘᴇɴ /ᴄʟᴏѕᴇ³",data="Amr_"..msg.sender.user_id.."_3"},{text ="ᴏᴛʜᴇʀѕ⁴",data="Amr_"..msg.sender.user_id.."_4"}},
 {{text = 'MNH',url="t.me/wwwuw"}},
 }
 }
-bot.sendText(msg.chat_id,msg.id,"*- قائمه الاوامر\n *— — — — — — — — — —  *\n- م1 ( اوامر الحمايه) \n- م2 ( اوامر إعدادات المجموعه )\n- م3 ( اوامر القفل والفتح )\n- م4 ( اوامر اخرى )*","md", true, false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,"*- قائمه الاوامر\n *— — — — — — — — — —  *\n- م1 ( اوامر الحمايه \n- م2 ( اوامر إعدادات المجموعه )\n- م3 ( اوامر القفل والفتح )\n- م4 ( اوامر اخرى )*","md", true, false, false, false, reply_markup)
 end
 if text == "الاعدادات" then    
 reply_markup = bot.replyMarkup{
@@ -3427,6 +3427,1485 @@ name = string.gsub(name,"ساحه","ح ا ه س")
 name = string.gsub(name,"جسر","ر ج س")
 return bot.sendText(msg.chat_id,msg.id,"- اسرع واحد يرتبها~ ( ["..name.."] )","md",true)  
 end
+if text == 'انشاء حساب بنكي' or text == 'انشاء حساب البنكي' or text =='انشاء الحساب بنكي' or text =='انشاء الحساب البنكي' then
+	creditcc = math.random(5000000000000000,5999999999999999);
+	creditvi = math.random(4000000000000000,4999999999999999);
+	creditex = math.random(6000000000000000,6999999999999999);
+	balas = 50
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ لديك حساب بنكي مسبقاً\n\n⇜ لعرض معلومات حسابك اكتب\n⇠ `حسابي`","md",true)
+	end
+	Redis:setex(status.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id,60, true)
+	LuaTele.sendText(msg.chat_id,msg.id,[[
+	– عشان تعمل حساب لازم تختار نوع البطاقة
+	
+	⇠ `ماستر`
+	⇠ `فيزا`
+	⇠ `اكسبرس`
+	
+	- اضغط للنسخ
+	
+	– مدة الطلب دقيقة واحدة ويطردك الموظف .
+	]],"md",true)  
+	return false
+	end
+	if Redis:get(status.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) then
+	if text == "ماستر" then
+	local ban = LuaTele.getUser(msg.sender.user_id)
+	if ban.first_name then
+	news = ""..ban.first_name..""
+	else
+	news = " لا يوجد"
+	end
+	local banid = msg.sender.user_id
+	Redis:set(status.."bobna"..msg.sender.user_id,news)
+	Redis:set(status.."boob"..msg.sender.user_id,balas)
+	Redis:set(status.."boobb"..msg.sender.user_id,creditcc)
+	Redis:set(status.."bbobb"..msg.sender.user_id,text)
+	Redis:set(status.."boballname"..creditcc,news)
+	Redis:set(status.."boballbalc"..creditcc,balas)
+	Redis:set(status.."boballcc"..creditcc,creditcc)
+	Redis:set(status.."boballban"..creditcc,text)
+	Redis:set(status.."boballid"..creditcc,banid)
+	Redis:sadd(status.."booob",msg.sender.user_id)
+	Redis:del(status.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
+	LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك كيوجا 🏦\n• وشحنالك 50 جنيه 💵 هدية\n\n⇜ رقم حسابك ↢ ( `"..creditcc.."` )\n⇜ نوع البطاقة ↢ ( ماستر 💳 )\n⇜ فلوسك ↢ ( 50 جنيه 💵 )  ","md",true)  
+	end 
+	if text == "فيزا" then
+	local ban = LuaTele.getUser(msg.sender.user_id)
+	if ban.first_name then
+	news = ""..ban.first_name..""
+	else
+	news = " لا يوجد"
+	end
+	local banid = msg.sender.user_id
+	Redis:set(status.."bobna"..msg.sender.user_id,news)
+	Redis:set(status.."boob"..msg.sender.user_id,balas)
+	Redis:set(status.."boobb"..msg.sender.user_id,creditvi)
+	Redis:set(status.."bbobb"..msg.sender.user_id,text)
+	Redis:set(status.."boballname"..creditvi,news)
+	Redis:set(status.."boballbalc"..creditvi,balas)
+	Redis:set(status.."boballcc"..creditvi,creditvi)
+	Redis:set(status.."boballban"..creditvi,text)
+	Redis:set(status.."boballid"..creditvi,banid)
+	Redis:sadd(status.."booob",msg.sender.user_id)
+	Redis:del(status.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
+	LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك كيوجا 🏦\n• وشحنالك 50 جنيه 💵 هدية\n\n⇜ رقم حسابك ↢ ( `"..creditvi.."` )\n⇜ نوع البطاقة ↢ ( فيزا 💳 )\n⇜ فلوسك ↢ ( 50 جنيه 💵 )  ","md",true)   
+	end 
+	if text == "اكسبرس" then
+	local ban = LuaTele.getUser(msg.sender.user_id)
+	if ban.first_name then
+	news = ""..ban.first_name..""
+	else
+	news = " لا يوجد"
+	end
+	local banid = msg.sender.user_id
+	Redis:set(status.."bobna"..msg.sender.user_id,news)
+	Redis:set(status.."boob"..msg.sender.user_id,balas)
+	Redis:set(status.."boobb"..msg.sender.user_id,creditex)
+	Redis:set(status.."bbobb"..msg.sender.user_id,text)
+	Redis:set(status.."boballname"..creditex,news)
+	Redis:set(status.."boballbalc"..creditex,balas)
+	Redis:set(status.."boballcc"..creditex,creditex)
+	Redis:set(status.."boballban"..creditex,text)
+	Redis:set(status.."boballid"..creditex,banid)
+	Redis:sadd(status.."booob",msg.sender.user_id)
+	Redis:del(status.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
+	LuaTele.sendText(msg.chat_id,msg.id, "\n• وعملنا لك حساب في بنك كيوجا 🏦\n• وشحنالك 50 جنيه 💵 هدية\n\n⇜ رقم حسابك ↢ ( `"..creditex.."` )\n⇜ نوع البطاقة ↢ ( اكسبرس 💳 )\n⇜ فلوسك ↢ ( 50 جنيه 💵 )  ","md",true)   
+	end 
+	end
+	if text == 'مسح حساب بنكي' or text == 'مسح حساب البنكي' or text =='مسح الحساب بنكي' or text =='مسح الحساب البنكي' or text == "مسح حسابي البنكي" or text == "مسح حسابي بنكي" then
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	Redis:srem(status.."booob", msg.sender.user_id)
+	Redis:del(status.."boob"..msg.sender.user_id)
+	Redis:del(status.."boobb"..msg.sender.user_id)
+	Redis:del(status.."zrfff"..msg.sender.user_id)
+	Redis:srem(status.."zrfffid", msg.sender.user_id)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مسحت حسابك البنكي 🏦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	
+	if text == 'تصفير النتائج' or text == 'مسح لعبه البنك' then
+	if msg.ControllerBot then
+	Redis:del(status.."booob")
+	Redis:del(status.."boob")
+	Redis:del(status.."boobb")
+	Redis:del(status.."zrfff")
+	Redis:del(status.."zrfffid")
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مسحت لعبه البنك 🏦","md",true)
+	end
+	end
+	
+	if text == 'فلوسي' or text == 'فلوس' and tonumber(msg.reply_to_message_id) == 0 then
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	if tonumber(ballancee) < 1 then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش فلوس ارسل الالعاب وابدأ بجمع الفلوس \n✦","md",true)
+	end
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ فلوسك "..ballancee.." جنيه 💵","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	
+	if text == 'فلوسه' or text == 'فلوس' and tonumber(msg.reply_to_message_id) ~= 0 then
+	local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+	local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
+	if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+	LuaTele.sendText(msg.chat_id,msg.id,"\n*⇜ كيوجا معندوشا حساب بالبنك 🤣*","md",true)  
+	return false
+	end
+	if Redis:sismember(status.."booob",Remsg.sender.user_id) then
+	ballanceed = Redis:get(status.."boob"..Remsg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ فلوسه "..ballanceed.." جنيه 💵","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندوش حساب بنكي ","md",true)
+	end
+	end
+	
+	if text == 'حسابي' or text == 'حسابي البنكي' or text == 'رقم حسابي' then
+	local ban = LuaTele.getUser(msg.sender.user_id)
+	if ban.first_name then
+	news = ""..ban.first_name..""
+	else
+	news = " لا يوجد"
+	end
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	cccc = Redis:get(status.."boobb"..msg.sender.user_id)
+	uuuu = Redis:get(status.."bbobb"..msg.sender.user_id)
+	pppp = Redis:get(status.."zrfff"..msg.sender.user_id) or 0
+	ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ الاسم ↢ "..news.."\n⇜ الحساب ↢ `"..cccc.."`\n⇜ بنك ↢ ( كيوجا )\n⇜ نوع ↢ ( "..uuuu.." )\n⇜ الرصيد ↢ ( "..ballancee.." جنيه 💵 )\n⇜ الزرف ( "..pppp.." جنيه 💵 )\n✦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	
+	if text == 'مسح حسابه' and tonumber(msg.reply_to_message_id) ~= 0 then
+	if msg.ControllerBot then
+	local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+	local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
+	if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+	LuaTele.sendText(msg.chat_id,msg.id,"\n*⇜ كيوجا معندوشا حساب بالبنك 🤣*","md",true)  
+	return false
+	end
+	local ban = LuaTele.getUser(Remsg.sender.user_id)
+	if ban.first_name then
+	news = ""..ban.first_name..""
+	else
+	news = " لا يوجد"
+	end
+	if Redis:sismember(status.."booob",Remsg.sender.user_id) then
+	ccccc = Redis:get(status.."boobb"..Remsg.sender.user_id)
+	uuuuu = Redis:get(status.."bbobb"..Remsg.sender.user_id)
+	ppppp = Redis:get(status.."zrfff"..Remsg.sender.user_id) or 0
+	ballanceed = Redis:get(status.."boob"..Remsg.sender.user_id) or 0
+	Redis:srem(status.."booob", Remsg.sender.user_id)
+	Redis:del(status.."boob"..Remsg.sender.user_id)
+	Redis:del(status.."boobb"..Remsg.sender.user_id)
+	Redis:del(status.."zrfff"..Remsg.sender.user_id)
+	Redis:srem(status.."zrfffid", Remsg.sender.user_id)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ الاسم ↢ "..news.."\n⇜ الحساب ↢ `"..ccccc.."`\n⇜ بنك ↢ ( كيوجا )\n⇜ نوع ↢ ( "..uuuuu.." )\n⇜ الرصيد ↢ ( "..ballanceed.." جنيه 💵 )\n⇜ الزرف ↢ ( "..ppppp.." جنيه 💵 )\n⇜ مسكين مسحت حسابه \n✦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندوش حساب بنكي اصلاً ","md",true)
+	end
+	end
+	end
+	
+	if text == 'حسابه' and tonumber(msg.reply_to_message_id) ~= 0 then
+	local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+	local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
+	if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+	LuaTele.sendText(msg.chat_id,msg.id,"\n*⇜ كيوجا معندوشا حساب بالبنك 🤣*","md",true)  
+	return false
+	end
+	local ban = LuaTele.getUser(Remsg.sender.user_id)
+	if ban.first_name then
+	news = ""..ban.first_name..""
+	else
+	news = " لا يوجد"
+	end
+	if Redis:sismember(status.."booob",Remsg.sender.user_id) then
+	ccccc = Redis:get(status.."boobb"..Remsg.sender.user_id)
+	uuuuu = Redis:get(status.."bbobb"..Remsg.sender.user_id)
+	ppppp = Redis:get(status.."zrfff"..Remsg.sender.user_id) or 0
+	ballanceed = Redis:get(status.."boob"..Remsg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ الاسم ↢ "..news.."\n⇜ الحساب ↢ `"..ccccc.."`\n⇜ بنك ↢ ( كيوجا )\n⇜ نوع ↢ ( "..uuuuu.." )\n⇜ الرصيد ↢ ( "..ballanceed.." جنيه 💵 )\n⇜ الزرف ↢ ( "..ppppp.." جنيه 💵 )\n✦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندوش حساب بنكي ","md",true)
+	end
+	end
+	
+	if text and text:match('^مسح حساب (.*)$') or text and text:match('^مسح حسابه (.*)$') then
+	if msg.ControllerBot then
+	local UserName = text:match('^مسح حساب (.*)$') or text:match('^مسح حسابه (.*)$')
+	local coniss = tostring(UserName)
+	local coniss = coniss:gsub('٠','0')
+	local coniss = coniss:gsub('١','1')
+	local coniss = coniss:gsub('٢','2')
+	local coniss = coniss:gsub('٣','3')
+	local coniss = coniss:gsub('٤','4')
+	local coniss = coniss:gsub('٥','5')
+	local coniss = coniss:gsub('٦','6')
+	local coniss = coniss:gsub('٧','7')
+	local coniss = coniss:gsub('٨','8')
+	local coniss = coniss:gsub('٩','9')
+	local coniss = tonumber(coniss)
+	local ban = LuaTele.getUser(coniss)
+	if ban.first_name then
+	news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+	else
+	news = " لا يوجد "
+	end
+	if Redis:sismember(status.."booob",coniss) then
+	ccccc = Redis:get(status.."boobb"..coniss)
+	uuuuu = Redis:get(status.."bbobb"..coniss)
+	ppppp = Redis:get(status.."zrfff"..coniss) or 0
+	ballanceed = Redis:get(status.."boob"..coniss) or 0
+	Redis:srem(status.."booob", coniss)
+	Redis:del(status.."boob"..coniss)
+	Redis:del(status.."boobb"..coniss)
+	Redis:del(status.."zrfff"..coniss)
+	Redis:srem(status.."zrfffid", coniss)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ الاسم ↢ "..news.."\n⇜ الحساب ↢ `"..ccccc.."`\n⇜ بنك ↢ ( كيوجا )\n⇜ نوع ↢ ( "..uuuuu.." )\n⇜ الرصيد ↢ ( "..ballanceed.." جنيه 💵 )\n⇜ الزرف ↢ ( "..ppppp.." جنيه 💵 )\n⇜ مسكين مسحت حسابه \n✦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندوش حساب بنكي اصلاً ","md",true)
+	end
+	end
+	end
+	
+	if text and text:match('^حساب (.*)$') or text and text:match('^حسابه (.*)$') then
+	local UserName = text:match('^حساب (.*)$') or text:match('^حسابه (.*)$')
+	local coniss = tostring(UserName)
+	local coniss = coniss:gsub('٠','0')
+	local coniss = coniss:gsub('١','1')
+	local coniss = coniss:gsub('٢','2')
+	local coniss = coniss:gsub('٣','3')
+	local coniss = coniss:gsub('٤','4')
+	local coniss = coniss:gsub('٥','5')
+	local coniss = coniss:gsub('٦','6')
+	local coniss = coniss:gsub('٧','7')
+	local coniss = coniss:gsub('٨','8')
+	local coniss = coniss:gsub('٩','9')
+	local coniss = tonumber(coniss)
+	if Redis:get(status.."boballcc"..coniss) then
+	local yty = Redis:get(status.."boballname"..coniss)
+	local dfhb = Redis:get(status.."boballbalc"..coniss)
+	local fsvhh = Redis:get(status.."boballban"..coniss)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ الاسم ↢ "..yty.."\n⇜ الحساب ↢ `"..coniss.."`\n⇜ بنك ↢ ( كيوجا )\n⇜ نوع ↢ ( "..fsvhh.." )\n⇜ الرصيد ↢ ( "..dfhb.." جنيه 💵 )\n✦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مافيه حساب بنكي كذا","md",true)
+	end
+	end
+	
+	if text == 'مضاربه' then
+	LuaTele.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`مضاربه` المبلغ","md",true)
+	end
+	
+	if text and text:match('^مضاربه (.*)$') then
+	local UserName = text:match('^مضاربه (.*)$')
+	local coniss = tostring(UserName)
+	local coniss = coniss:gsub('٠','0')
+	local coniss = coniss:gsub('١','1')
+	local coniss = coniss:gsub('٢','2')
+	local coniss = coniss:gsub('٣','3')
+	local coniss = coniss:gsub('٤','4')
+	local coniss = coniss:gsub('٥','5')
+	local coniss = coniss:gsub('٦','6')
+	local coniss = coniss:gsub('٧','7')
+	local coniss = coniss:gsub('٨','8')
+	local coniss = coniss:gsub('٩','9')
+	local coniss = tonumber(coniss)
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	if Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 1180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 20 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 1120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 19 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 1060 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 18 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 1000 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 17 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 940 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 16 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 880 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 15 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 820 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 14 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 760 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 13 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 700 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 12 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 640 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 11 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 580 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 10 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 540 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 9 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 480 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 8 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 420 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 7 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 360 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 6 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 300 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 240 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooooo" .. msg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تضارب دلوقتي\n⇜ تعال بعد ( 1 دقيقة )","md",true)
+	end
+	ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	if tonumber(coniss) < 99 then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 100 جنيه 💵\n✦","md",true)
+	end
+	if tonumber(ballancee) < tonumber(coniss) then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✦","md",true)
+	end
+	local modarba = {"0", "1", "2", "3", "4️",}
+	local Descriptioontt = modarba[math.random(#modarba)]
+	local modarbaa = math.random(1,90);
+	if Descriptioontt == "1" or Descriptioontt == "3" then
+	ballanceekku = coniss / 100 * modarbaa
+	ballanceekkku = ballancee - ballanceekku
+	Redis:set(status.."boob"..msg.sender.user_id , math.floor(ballanceekkku))
+	Redis:setex(status.."iiooooo" .. msg.sender.user_id,1200, true)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مضاربة فاشلة 📉\n⇜ نسبة الخسارة ↢ "..modarbaa.."%\n⇜ المبلغ الذي خسرته ↢ ( "..ballanceekku.." جنيه 💵 )\n⇜ فلوسك صارت ↢ ( "..ballanceekkku.." جنيه 💵 )\n✦","md",true)
+	elseif Descriptioontt == "2" or Descriptioontt == "4" then
+	ballanceekku = coniss / 100 * modarbaa
+	ballanceekkku = ballancee + ballanceekku
+	Redis:set(status.."boob"..msg.sender.user_id , math.floor(ballanceekkku))
+	Redis:setex(status.."iiooooo" .. msg.sender.user_id,1200, true)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مضاربة ناجحة 📈\n⇜ نسبة الربح ↢ "..modarbaa.."%\n⇜ المبلغ الذي ربحته ↢ ( "..ballanceekku.." جنيه 💵 )\n⇜ فلوسك صارت ↢ ( "..ballanceekkku.." جنيه 💵 )\n✦","md",true)
+	else
+	Redis:setex(status.."iiooooo" .. msg.sender.user_id,1200, true)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ تأخرت اليوم والبنك مسكر ارجع بعدين \n✦","md",true)
+	end
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	
+	if text == 'استثمار' then
+	LuaTele.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`استثمار` المبلغ","md",true)
+	end
+	
+	if text and text:match('^استثمار (.*)$') then
+	local UserName = text:match('^استثمار (.*)$')
+	local coniss = tostring(UserName)
+	local coniss = coniss:gsub('٠','0')
+	local coniss = coniss:gsub('١','1')
+	local coniss = coniss:gsub('٢','2')
+	local coniss = coniss:gsub('٣','3')
+	local coniss = coniss:gsub('٤','4')
+	local coniss = coniss:gsub('٥','5')
+	local coniss = coniss:gsub('٦','6')
+	local coniss = coniss:gsub('٧','7')
+	local coniss = coniss:gsub('٨','8')
+	local coniss = coniss:gsub('٩','9')
+	local coniss = tonumber(coniss)
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	if Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 1180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 20 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 1120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 19 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 1060 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 18 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 1000 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 17 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 940 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 16 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 880 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 15 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 820 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 14 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 760 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 13 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 700 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 12 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 640 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 11 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 580 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 10 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 540 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 9 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 480 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 8 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 420 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 7 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 360 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 6 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 300 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 240 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioooo" .. msg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تستثمر دلوقتي\n⇜ تعال بعد ( 1 دقيقة )","md",true)
+	end
+	ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	if tonumber(coniss) < 99 then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح هو 100 جنيه 💵\n✦","md",true)
+	end
+	if tonumber(ballancee) < tonumber(coniss) then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✦","md",true)
+	end
+	local hadddd = math.random(0,17);
+	ballanceekk = coniss / 100 * hadddd
+	ballanceekkk = ballancee + ballanceekk
+	Redis:incrby(status.."boob"..msg.sender.user_id , math.floor(ballanceekk))
+	Redis:setex(status.."iioooo" .. msg.sender.user_id,1200, true)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ استثمار ناجح 💰\n⇜ نسبة الربح ↢ "..hadddd.."%\n⇜ مبلغ الربح ↢ ( "..ballanceekk.." جنيه 💵 )\n⇜ فلوسك صارت ↢ ( "..ballanceekkk.." جنيه 💵 )\n✦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	
+	if text == 'حظ' then
+	LuaTele.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`حظ` المبلغ","md",true)
+	end
+	
+	if text and text:match('^حظ (.*)$') then
+	local UserName = text:match('^حظ (.*)$')
+	local coniss = tostring(UserName)
+	local coniss = coniss:gsub('٠','0')
+	local coniss = coniss:gsub('١','1')
+	local coniss = coniss:gsub('٢','2')
+	local coniss = coniss:gsub('٣','3')
+	local coniss = coniss:gsub('٤','4')
+	local coniss = coniss:gsub('٥','5')
+	local coniss = coniss:gsub('٦','6')
+	local coniss = coniss:gsub('٧','7')
+	local coniss = coniss:gsub('٨','8')
+	local coniss = coniss:gsub('٩','9')
+	local coniss = tonumber(coniss)
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	if Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 1180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 20 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 1120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 19 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 1060 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 18 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 1000 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 17 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 940 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 16 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 880 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 15 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 820 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 14 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 760 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 13 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 700 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 12 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 640 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 11 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 580 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 10 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 540 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 9 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 480 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 8 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 420 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 7 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 360 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 6 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 300 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 240 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiooo" .. msg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تلعب لعبة الحظ دلوقتي\n⇜ تعال بعد ( 1 دقيقة )","md",true)
+	end
+	ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	if tonumber(ballancee) < tonumber(coniss) then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✦","md",true)
+	end
+	local daddd = {"1", "2", "3", "4️",}
+	local haddd = daddd[math.random(#daddd)]
+	if haddd == "1" or haddd == "3" then
+	local ballanceek = ballancee + coniss
+	Redis:incrby(status.."boob"..msg.sender.user_id , math.floor(ballanceek))
+	Redis:setex(status.."iiooo" .. msg.sender.user_id,1200, true)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مبروك فزت بالحظ 🎉\n⇜ فلوسك قبل ↢ ( "..ballancee.." جنيه 💵 )\n⇜ فلوسك دلوقتي ↢ ( "..ballanceek.." جنيه 💵 )\n✦","md",true)
+	else
+	local ballanceekk = ballancee - coniss
+	Redis:decrby(status.."boob"..msg.sender.user_id , coniss)
+	Redis:setex(status.."iiooo" .. msg.sender.user_id,1200, true)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ للاسف خسرت بالحظ 😬\n⇜ فلوسك قبل ↢ ( "..ballancee.." جنيه 💵 )\n⇜ فلوسك دلوقتي ↢ ( "..ballanceekk.." جنيه 💵 )\n✦","md",true)
+	end
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	
+	if text == 'تحويل' then
+	LuaTele.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`تحويل` المبلغ","md",true)
+	end
+	
+	if text and text:match('^تحويل (.*)$') then
+	local UserName = text:match('^تحويل (.*)$')
+	local coniss = tostring(UserName)
+	local coniss = coniss:gsub('٠','0')
+	local coniss = coniss:gsub('١','1')
+	local coniss = coniss:gsub('٢','2')
+	local coniss = coniss:gsub('٣','3')
+	local coniss = coniss:gsub('٤','4')
+	local coniss = coniss:gsub('٥','5')
+	local coniss = coniss:gsub('٦','6')
+	local coniss = coniss:gsub('٧','7')
+	local coniss = coniss:gsub('٨','8')
+	local coniss = coniss:gsub('٩','9')
+	local coniss = tonumber(coniss)
+	if not Redis:sismember(status.."booob",msg.sender.user_id) then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ","md",true)
+	end
+	if tonumber(coniss) < 100 then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ الحد الادنى المسموح به هو 100 جنيه \n✦","md",true)
+	end
+	ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	if tonumber(ballancee) < 100 then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي \n✦","md",true)
+	end
+	
+	if tonumber(coniss) > tonumber(ballancee) then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ فلوسك ماتكفي\n✦","md",true)
+	end
+	
+	Redis:set(status.."transn"..msg.sender.user_id,coniss)
+	Redis:setex(status.."trans" .. msg.chat_id .. ":" .. msg.sender.user_id,60, true)
+	LuaTele.sendText(msg.chat_id,msg.id,[[
+	⇜ ارسل دلوقتي رقم الحساب البنكي الي تبي تحول له
+	
+	– معاك دقيقة وحدة والغي طلب التحويل .
+	✦
+	]],"md",true)  
+	return false
+	end
+	if Redis:get(status.."trans" .. msg.chat_id .. ":" .. msg.sender.user_id) then
+	cccc = Redis:get(status.."boobb"..msg.sender.user_id)
+	uuuu = Redis:get(status.."bbobb"..msg.sender.user_id)
+	if text ~= text:match('^(%d+)$') then
+	Redis:del(status.."trans" .. msg.chat_id .. ":" .. msg.sender.user_id) 
+	Redis:del(status.."transn" .. msg.sender.user_id)
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ارسل رقم حساب بنكي ","md",true)
+	end
+	if text == cccc then
+	Redis:del(status.."trans" .. msg.chat_id .. ":" .. msg.sender.user_id) 
+	Redis:del(status.."transn" .. msg.sender.user_id)
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ مايمديك تحول لنفسك ","md",true)
+	end
+	if Redis:get(status.."boballcc"..text) then
+	local UserNamey = Redis:get(status.."transn"..msg.sender.user_id)
+	local ban = LuaTele.getUser(msg.sender.user_id)
+	if ban.first_name then
+	news = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+	else
+	news = " لا يوجد "
+	end
+	local fsvhhh = Redis:get(status.."boballid"..text)
+	local bann = LuaTele.getUser(fsvhhh)
+	if bann.first_name then
+	newss = "["..bann.first_name.."](tg://user?id="..bann.id..")"
+	else
+	newss = " لا يوجد "
+	end
+	local fsvhh = Redis:get(status.."boballban"..text)
+	UserNameyr = UserNamey / 10
+	UserNameyy = UserNamey - UserNameyr
+	Redis:decrby(status.."boob"..msg.sender.user_id , UserNamey)
+	Redis:incrby(status.."boob"..fsvhhh , math.floor(UserNameyy))
+	LuaTele.sendText(msg.chat_id,msg.id, "حوالة صادرة من بنك كيوجا\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمستلم : "..newss.."\nالحساب رقم : `"..text.."`\nنوع البطاقة : "..fsvhh.."\nخصمت 10% رسوم تحويل\nالمبلغ : "..UserNameyy.." جنيه 💵","md",true)
+	LuaTele.sendText(fsvhhh,0, "حوالة واردة من بنك كيوجا\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمبلغ : "..UserNameyy.." جنيه 💵","md",true)
+	Redis:del(status.."trans" .. msg.chat_id .. ":" .. msg.sender.user_id) 
+	Redis:del(status.."transn" .. msg.sender.user_id)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مافيه حساب بنكي كذا","md",true)
+	Redis:del(status.."trans" .. msg.chat_id .. ":" .. msg.sender.user_id) 
+	Redis:del(status.."transn" .. msg.sender.user_id)
+	end
+	end
+	
+	if text and text:match("^اضف فلوس (.*)$") and msg.reply_to_message_id ~= 0 then
+	local UserName = text:match('^اضف فلوس (.*)$')
+	local coniss = tostring(UserName)
+	local coniss = coniss:gsub('٠','0')
+	local coniss = coniss:gsub('١','1')
+	local coniss = coniss:gsub('٢','2')
+	local coniss = coniss:gsub('٣','3')
+	local coniss = coniss:gsub('٤','4')
+	local coniss = coniss:gsub('٥','5')
+	local coniss = coniss:gsub('٦','6')
+	local coniss = coniss:gsub('٧','7')
+	local coniss = coniss:gsub('٨','8')
+	local coniss = coniss:gsub('٩','9')
+	local coniss = tonumber(coniss)
+	if msg.ControllerBot then
+	local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+	local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
+	if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+	LuaTele.sendText(msg.chat_id,msg.id,"\n*⇜ كيوجا معندوشا حساب بالبنك 🤣*","md",true)  
+	return false
+	end
+	local ban = LuaTele.getUser(Remsg.sender.user_id)
+	if ban.first_name then
+	news = ""..ban.first_name..""
+	else
+	news = " لا يوجد"
+	end
+	if Redis:sismember(status.."booob",Remsg.sender.user_id) then
+	Redis:incrby(status.."boob"..Remsg.sender.user_id , coniss)
+	ccccc = Redis:get(status.."boobb"..Remsg.sender.user_id)
+	uuuuu = Redis:get(status.."bbobb"..Remsg.sender.user_id)
+	ppppp = Redis:get(status.."zrfff"..Remsg.sender.user_id) or 0
+	ballanceed = Redis:get(status.."boob"..Remsg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ الاسم ↢ "..news.."\n⇜ الحساب ↢ `"..ccccc.."`\n⇜ بنك ↢ ( كيوجا )\n⇜ نوع ↢ ( "..uuuuu.." )\n⇜ الزرف ↢ ( "..ppppp.." جنيه 💵 )\n⇜ صار رصيده ↢ ( "..ballanceed.." جنيه 💵 )\n✦","md",true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندوش حساب بنكي ","md",true)
+	end
+	end
+	end
+	
+	if text == 'توب' or text == 'التوب' then
+	local reply_markup = LuaTele.replyMarkup{
+	type = 'inline',data = {
+	{{text = 'توب الفلوس 🏦', data = msg.sender.user_id..'/top/flos'},{text = 'توب الحراميه 🏛️ ', data = msg.sender.user_id..'/top/zrf'},},
+	}}
+	return LuaTele.sendText(msg.chat_id,msg.id,'*مـرحـبا بك في قائـمة التوب لهذا الاسبوع ᥫ᭡*',"md",false, false, false, false, reply_markup)
+	end
+	
+	if text == "توب الاموال" or text == "توب الفلوس" then
+	local bank_users = Redis:smembers(status.."booob")
+	if #bank_users == 0 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ لم يقم احد بعمل حساب بنكي","md",true)
+	end
+	top_mony = "توب اغنى 20 شخص :\n\n"
+	mony_list = {}
+	for k,v in pairs(bank_users) do
+	local mony = Redis:get(status.."boob"..v)
+	table.insert(mony_list, {tonumber(mony) , v})
+	end
+	table.sort(mony_list, function(a, b) return a[1] > b[1] end)
+	num = 1
+	emoji ={ 
+	"🥇" ,
+	"🥈",
+	"🥉",
+	"4",
+	"5",
+	"6",
+	"7",
+	"8",
+	"9",
+	"10",
+	"11",
+	"12",
+	"13",
+	"14",
+	"15",
+	"16",
+	"17",
+	"18",
+	"19",
+	"20"
+	}
+	for k,v in pairs(mony_list) do
+	if num <= 20 then
+	local user_name = LuaTele.getUser(v[2]).first_name
+	local user_tag = '['..user_name..'](tg://user?id='..v[2]..')'
+	local user_jack = '['..user_name..']('..user_name..')'
+	local mony = v[1]
+	local emo = emoji[k]
+	num = num + 1
+	top_mony = top_mony..emo.." - "..mony.." | "..user_jack.." 💸 \n"
+	end
+	end
+	return LuaTele.sendText(msg.chat_id,msg.id,top_mony,"md",true)
+	end
+	
+	if text == "توب الحراميه" or text == "توب اللصوص" or text == "توب السرقه" or text == "توب الزرف" or text == "توب زرف" then
+	local ty_users = Redis:smembers(status.."zrfffid")
+	if #ty_users == 0 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"•  لم يقم احد ب سرقه الاموال حتي الان","md",true)
+	end
+	ty_siria = "توب 20 شخص سرقوا فلوس :\n#يتم تصفير النتائج كل اسبوع\n\n"
+	ty_list = {}
+	for k,v in pairs(ty_users) do
+	local mony = Redis:get(status.."zrfff"..v)
+	table.insert(ty_list, {tonumber(mony) , v})
+	end
+	table.sort(ty_list, function(a, b) return a[1] > b[1] end)
+	num_ty = 1
+	emojii ={ 
+	"🥇" ,
+	"🥈",
+	"🥉",
+	"4",
+	"5",
+	"6",
+	"7",
+	"8",
+	"9",
+	"10",
+	"11",
+	"12",
+	"13",
+	"14",
+	"15",
+	"16",
+	"17",
+	"18",
+	"19",
+	"20"
+	}
+	for k,v in pairs(ty_list) do
+	if num_ty <= 20 then
+	local user_name = LuaTele.getUser(v[2]).first_name
+	local user_tag = '['..user_name..'](tg://user?id='..v[2]..')'
+	local user_siria = '['..user_name..']('..user_name..')'
+	local mony = v[1]
+	local emoo = emojii[k]
+	num_ty = num_ty + 1
+	ty_siria = ty_siria..emoo.." - "..mony.." | "..user_siria.." 💸 \n"
+	end
+	end
+	return LuaTele.sendText(msg.chat_id,msg.id,ty_siria,"md",true)
+	end
+	
+	if text == 'بخشيش' or text == 'بقشيش' then
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	if Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 580 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 10 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 540 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 9 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 480 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 8 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 420 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 7 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 360 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 6 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 300 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 240 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iioo" .. msg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ من شوي اخدت بخشيش استنى ( 1 دقيقة )","md",true)
+	end
+	local jjjo = math.random(100,1000);
+	Redis:incrby(status.."boob"..msg.sender.user_id , jjjo)
+	LuaTele.sendText(msg.chat_id,msg.id,"⇜ تكرم وهي بخشيش "..jjjo.." جنيه 💵","md",true)
+	Redis:setex(status.."iioo" .. msg.sender.user_id,600, true)
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	
+	if text == 'زرف' and tonumber(msg.reply_to_message_id) == 0 then
+	LuaTele.sendText(msg.chat_id,msg.id, "استعمل الامر كذا :\n\n`زرف` بالرد","md",true)
+	end
+	
+	if text == 'زرف' or text == 'زرفو' or text == 'زرفه' and tonumber(msg.reply_to_message_id) ~= 0 then
+	local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
+	local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
+	if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
+	LuaTele.sendText(msg.chat_id,msg.id,"\n*⇜ كيوجا معندوشا حساب بالبنك 🤣*","md",true)  
+	return false
+	end
+	if Remsg.sender.user_id == msg.sender.user_id then
+	LuaTele.sendText(msg.chat_id,msg.id,"\n*⇜ بدك تزرف نفسك 🤡*","md",true)  
+	return false
+	end
+	if Redis:ttl(status.."polic" .. msg.sender.user_id) >= 280 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ انتا بالسجن 🏤 استنى ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."polic" .. msg.sender.user_id) >= 240 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ انتا بالسجن 🏤 استنى ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."polic" .. msg.sender.user_id) >= 180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ انتا بالسجن 🏤 استنى ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."polic" .. msg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ انتا بالسجن 🏤 استنى ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."polic" .. msg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ انتا بالسجن 🏤 استنى ( 1 دقيقة )","md",true)
+	end
+	if Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 880 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 15 دقيقة )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 820 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 14 دقيقة )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 760 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 13 دقيقة )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 700 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 12 دقيقة )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 640 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 11 دقيقة )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 580 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 10 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 540 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 9 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 480 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 8 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 420 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 7 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 360 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 6 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 300 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 240 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."hrame" .. Remsg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ ذا المسكين مزروف قبل شوي\n⇜ يمديك تزرفه بعد ( 1 دقيقة )","md",true)
+	end
+	if Redis:sismember(status.."booob",Remsg.sender.user_id) then
+	ballanceed = Redis:get(status.."boob"..Remsg.sender.user_id) or 0
+	if tonumber(ballanceed) < 199 then
+	return LuaTele.sendText(msg.chat_id,msg.id, "⇜ مايمديك تزرفه فلوسه اقل من 200 جنيه 💵","md",true)
+	end
+	local hrame = math.floor(math.random() * 200) + 1;
+	local hramee = math.floor(math.random() * 5) + 1;
+	if hramee == 1 or hramee == 2 or hramee == 3 or hramee == 4 then
+	local ballanceed = Redis:get(status.."boob"..Remsg.sender.user_id) or 0
+	Redis:incrby(status.."boob"..msg.sender.user_id , hrame)
+	Redis:decrby(status.."boob"..Remsg.sender.user_id , hrame)
+	Redis:setex(status.."hrame" .. Remsg.sender.user_id,900, true)
+	Redis:incrby(status.."zrfff"..msg.sender.user_id,hrame)
+	Redis:sadd(status.."zrfffid",msg.sender.user_id)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ خد يا حرامي زرفته "..hrame.." جنيه 💵\n✦","md",true)
+	else
+	Redis:setex(status.."polic" .. msg.sender.user_id,300, true)
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ مسكتك الشرطة وانتا تزرف 🚔\n✦","md",true)
+	end
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندوش حساب بنكي ","md",true)
+	end
+	end
+	
+	if text == 'راتب' or text == 'راتبي' then
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	if Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 580 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 10 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 540 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 9 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 480 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 8 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 420 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 7 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 360 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 6 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 300 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 240 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 180 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiioo" .. msg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ راتبك بينزل بعد ( 1 دقيقة )","md",true)
+	end
+	local Textinggt = {"كابتن كريم 🚙", "شرطي 👮🏻‍♂️", "بياع حبوب 🍻", "سواق تاكسي 🚕", "قاضي 👨🏻‍⚖️", "نوم 🛌", "مغني 🎤", "كوفيره 💆🏻‍♀️", "ربة منزل 🤷🏻‍♀️", "مربيه اطفال 💁🏻‍♀️", "كهربائي 💡", "نجار ⛏", "متذوق طعام 🍕", "فلاح 👨🏻‍🌾", "كاشير بنده 🙋🏻‍♂️", "ممرض 👨🏻‍⚕️", "مهرج 🤹‍♂️", "عامل توصيل 🚴🏻‍♂️", "عسكري 👮🏻‍♂️", "مهندس 👨🏻‍🔧", "وزير 👨??‍🦳", "محامي ⚖️", "تاجر 💵", "دكتور 👨🏻‍⚕️", "حفار قبور ⚓️", "حلاق ✂️", "إمام مسجد 📿", "صياد 🎣", "خياط 🧵", "طيار 🛩", "مودل 🕴🏻", "ملك 👑", "سباك 🔧", "موزع 🗺", "سكيورتي 👮🏻‍♂️", "معلم شاورما 🌯", "دكتور ولاده 👨🏻‍⚕️", "مذيع 🗣", "عامل مساج 💆🏻‍♂️", "ممثل 🤵🏻", "جزار 🥩", "مدير بنك 💳", "مبرمج 👨🏻‍💻", "رقاصه 💃🏻", "👩🏼‍💻 صحفي", "🥷 حرامي", "🔮 ساحر", "⚽ لاعب️", "🖼 مصور", "☎️ عامل مقسم", "📖 كاتب", "🧪 مخبري",}
+	local Descriptioont = Textinggt[math.random(#Textinggt)]
+	local ban = LuaTele.getUser(msg.sender.user_id)
+	if ban.first_name then
+	neews = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+	else
+	neews = " لا يوجد "
+	end
+	if Descriptioont == "كابتن كريم 🚙" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 50)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 25 جنيه 💵\nوظيفتك : كابتن كريم 🚙\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "شرطي 👮🏻‍♂️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 75)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 75 جنيه 💵\nوظيفتك : شرطي 👮🏻‍♂️\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "بياع حبوب 🍻" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 75)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 75 جنيه 💵\nوظيفتك : بياع حبوب 🍻\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "سواق تاكسي 🚕" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 50)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 50 جنيه 💵\nوظيفتك : سواق تاكسي 🚕\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "قاضي 👨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 150 جنيه 💵\nوظيفتك : قاضي 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "نوم 🛌" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 15)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 10 جنيه 💵\nوظيفتك : نوم 🛌\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مغني 🎤" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 30)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 30 جنيه 💵\nوظيفتك : مغني 🎤\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كوفيره 💆" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 35)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 35 جنيه 💵\nوظيفتك : كوفيره 💆\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ربة منزل 🤷" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 25)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 25 جنيه 💵\nوظيفتك : ربة منزل 🤷\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مربيه اطفال 💁" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 35)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 35 جنيه 💵\nوظيفتك : مربيه اطفال 💁\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كهربائي 💡" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 55)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 55 جنيه 💵\nوظيفتك : كهربائي 💡\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "نجار ⛏" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 65)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 65 جنيه 💵\nوظيفتك : نجار ⛏\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "متذوق طعام 🍕" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 15)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 15 جنيه 💵\nوظيفتك : متذوق طعام 🍕\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "فلاح 👨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 27)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 27 جنيه 💵\nوظيفتك : فلاح 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كاشير بنده 🙋" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 50)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 50 جنيه 💵\nوظيفتك : كاشير بنده 🙋\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ممرض ??" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 160 جنيه 💵\nوظيفتك : ممرض 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مهرج 🤹" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 46)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 46 جنيه 💵\nوظيفتك : مهرج 🤹\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عامل توصيل 🚴" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 59)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 59 جنيه 💵\nوظيفتك : عامل توصيل 🚴\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عسكري 👮" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 130)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 130 جنيه 💵\nوظيفتك : عسكري 👮\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه ??","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مهندس 👨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 200 جنيه 💵\nوظيفتك : مهندس 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "وزير 👨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 450)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 450 جنيه 💵\nوظيفتك : وزير 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "محامي ⚖️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 200 جنيه 💵\nوظيفتك : محامي ⚖️\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "تاجر 💵" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 250)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 250 جنيه 💵\nوظيفتك : تاجر 💵\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "دكتور 👨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 250)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 250 جنيه 💵\nوظيفتك : دكتور 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "حفار قبور ⚓" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 50)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 50 جنيه 💵\nوظيفتك : حفار قبور ⚓\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "حلاق ✂" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 40)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 40 جنيه 💵\nوظيفتك : حلاق ✂\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "إمام مسجد 📿" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 50)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 50 جنيه 💵\nوظيفتك : إمام مسجد 📿\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "صياد 🎣" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 70)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 70 جنيه 💵\nوظيفتك : صياد 🎣\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "خياط 🧵" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 30)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 30 جنيه 💵\nوظيفتك : خياط 🧵\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "طيار 🛩" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 230)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 230 جنيه 💵\nوظيفتك : طيار 🛩\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مودل 🕴" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 160 جنيه 💵\nوظيفتك : مودل 🕴\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ملك 👑" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 500)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 500 جنيه 💵\nوظيفتك : ملك 👑\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "سباك 🔧" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 20)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 20 جنيه 💵\nوظيفتك : سباك 🔧\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "موزع 🗺" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 100)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 100 جنيه 💵\nوظيفتك : موزع 🗺\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "سكيورتي 👮" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 90)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 90 جنيه 💵\nوظيفتك : سكيورتي 👮\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "معلم شاورما 🌯" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 85)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 85 جنيه 💵\nوظيفتك : معلم شاورما 🌯\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "دكتور ولاده 👨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 160 جنيه 💵\nوظيفتك : دكتور ولاده 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مذيع 🗣" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 170)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 170 جنيه 💵\nوظيفتك : مذيع 🗣\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه ??","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عامل مساج 💆" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 40)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 40 جنيه 💵\nوظيفتك : عامل مساج 💆\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ممثل 🤵" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 190)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 190 جنيه 💵\nوظيفتك : ممثل 🤵\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "جزار 🥩" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 50)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 50 جنيه 💵\nوظيفتك : جزار 🥩\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مدير بنك 💳" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 200 جنيه 💵\nوظيفتك : مدير بنك 💳\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مبرمج 👨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 180)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 50 جنيه 💵\nوظيفتك : مبرمج 👨\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "رقاصه 💃" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 55)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 55 جنيه 💵\nوظيفتك : رقاصه 💃\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "👩🏼‍💻 صحفي" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 90)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 90 جنيه 💵\nوظيفتك : 👩🏼‍💻 صحفي\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "🥷 حرامي" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 160 جنيه 💵\nوظيفتك : 🥷 حرامي\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "🔮 ساحر" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 100)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 100 جنيه 💵\nوظيفتك : 🔮 ساحر\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "⚽ لاعب️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 200 جنيه 💵\nوظيفتك : ⚽ لاعب️\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "🖼 مصور" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 70)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 70 جنيه 💵\nوظيفتك : 🖼 مصور\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "☎️ عامل مقسم" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 50)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 50 جنيه 💵\nوظيفتك : ☎️ عامل مقسم\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "📖 كاتب" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 40)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 40 جنيه 💵\nوظيفتك : 📖 كاتب\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "🧪 مخبري" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 80)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nالمبلغ : 80 جنيه 💵\nوظيفتك : 🧪 مخبري\nنوع العملية : اضافة راتب\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiioo" .. msg.sender.user_id,600, true)
+	end
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
+	if text == "جوزني" or text == "زوجني" then
+	local Info_Chats = LuaTele.getSupergroupFullInfo(msg.chat_id)
+	local chat_Members = LuaTele.searchChatMembers(msg_chat_id, "*", Info_Chats.member_count).members
+	local rand_members = math.random(#chat_Members)
+	local member_id = chat_Members[rand_members].member_id.user_id
+	local member_name = LuaTele.getUser(chat_Members[rand_members].member_id.user_id).first_name
+	local mem_tag = "["..member_name.."](tg://user?id="..member_id..")"
+	return LuaTele.sendText(msg_chat_id,msg_id,"اختارتلك زوجتك اهي  "..mem_tag.." 😹♥","md",true)
+	end
+	if Redis:get(status.."mshaher"..msg.chat_id) then
+	if text == Redis:get(status.."mshaher"..msg.chat_id) then
+	Redis:del(status.."mshaher"..msg.chat_id)
+	Redis:incrby(status.."Num:Add:Games"..msg.chat_id..msg.sender.user_id, 1)  
+	return LuaTele.sendText(msg_chat_id,msg_id,"\nᥫ᭡ لقد فزت في اللعبه \nᥫ᭡ العب مره اخره وارسل - بوب او مشاهير","md",true)  
+	end
+	end 
+	
+	if text == 'كنز' or text == 'الكنز' then
+	if Redis:sismember(status.."booob",msg.sender.user_id) then
+	if Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 5130 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 10 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 5100 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 9 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 4130 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 8 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 420 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 7 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 360 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 6 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 300 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 5 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 2100 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 4 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 1130 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 3 دقائق )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 120 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 2 دقيقة )","md",true)
+	elseif Redis:ttl(status.."iiihoo" .. msg.sender.user_id) >= 60 then
+	return LuaTele.sendText(msg.chat_id,msg.id,"⇜ كنزك  بينزل بعد ( 1 دقيقة )","md",true)
+	end
+	local Textinggt = {"ذهب ✨", "فضه 💰", "ورث 💰", "ياقوت ✨", "مرجان ✨🏻‍⚖️", "سبيكة ذهب خالص 💸", "عمله نادره 🔮", "اثار ⚱️🏻‍♀️", "فلوس 💴💸🏻‍♀️", "عمله قيمه💸🏻‍♀️", "كنز مفقود💸", "مجوهرات 💰", "عمله من العصر الفرعوني 🗿", "عمله من الدوله القديمه 🗿🏻‍🌾", "عمله بيتكوين 💶🏻‍♂️", "ممرض 👨🏻‍⚕️", "عمله فضيه نادره‍♂️", "عمله ذهبيه خالصه🏻‍♂️", "كنز علي بابا المفقود 💰🏻‍♂️", "بطاقه ائتمان💰🏻‍🔧", "دولار امريكي 💸??‍🦳", "دولار كندي 💸", "ين يباني 💸", "جنيه بريطاني 💸🏻‍⚕️", "دنانير عراقيه 💸️", "ريال سعودي 💴️", "درهم اماراتي 💴", "فرنك جيبوتي 💲", "اموال مفقوده 💲", "كنز خاص 💲", "صواع ملك مفقود ⚱️🏻", "تاج خاص بملك 👑", "تاج خاص بملك 👑", "اثار تحت المنزل", "جثة فرعون قديمه🏻‍♂️", "تابوت ملك مصري ⚰️", "تاج ملكه مصريه 👑🏻‍⚕️", "مخطوطه لكنز ", "مقبره فرعونيه 💎⚱️⚰️🏻‍♂️", "تمثال رمسيس ⚰️🏻", "كنز كيوجا المفقود 💲", "كنز اطلانطس المفقود 💲", "زئبق احمر 🌡️🏻‍💻", "ياقوت ومرجان 💰🏻", "عمله من العصر الفاطمي 💶", "مخطوطة كنز 📜", "بلوره قديمه 🔮", "كنز تائه 🏛️", "عملات من العصر المملوكي 💲", "كنز نابليون 💲💲", "كنز وخلاص 😂💲💲", "ممتلكات قديمه 💸",}
+	local Descriptioont = Textinggt[math.random(#Textinggt)]
+	local ban = LuaTele.getUser(msg.sender.user_id)
+	if ban.first_name then
+	neews = "["..ban.first_name.."](tg://user?id="..ban.id..")"
+	else
+	neews = " لا يوجد "
+	end
+	if Descriptioont == "ذهب ✨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 25 جنيه 💵\nكنزك هـو : ذهب ✨\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "فضه 💰" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 75)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 75 جنيه 💵\nكنزك هـو : فضه 💰\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ورث 💰" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 75)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 75 جنيه 💵\nكنزك هـو : ورث 💰\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ياقوت ✨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 150 جنيه 💵\nكنزك هـو : ياقوت ✨\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مرجان ✨" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 1150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 1150 جنيه 💵\nكنزك هـو : مرجان ✨\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "سبيكة ذهب خالص 💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 15)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 10 جنيه 💵\nكنزك هـو : سبيكة ذهب خالص 💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله نادره 🔮" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 30)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 30 جنيه 💵\nكنزك هـو : عمله نادره 🔮\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "اثار ⚱️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 35)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 35 جنيه 💵\nكنزك هـو : اثار ⚱️\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "فلوس 💴💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 25)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 25 جنيه 💵\nكنزك هـو : فلوس 💴💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله قيمه💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 35)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 35 جنيه 💵\nكنزك هـو : عمله قيمه💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز مفقود💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 300)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 300 جنيه 💵\nكنزك هـو : كنز مفقود💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مجوهرات 💰" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 65)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 65 جنيه 💵\nكنزك هـو : مجوهرات 💰\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله من العصر الفرعوني 🗿" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 15)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 15 جنيه 💵\nكنزك هـو : عمله من العصر الفرعوني 🗿\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله من الدوله القديمه 🗿" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 27)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 27 جنيه 💵\nكنزك هـو : عمله من الدوله القديمه 🗿\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله بيتكوين 💶" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 150 جنيه 💵\nكنزك هـو : عمله بيتكوين 💶\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله ذهبيه نادره" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 160 جنيه 💵\nكنزك هـو : ممرض 👨\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله فضيه نادره" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 200 جنيه 💵\nكنزك هـو : عمله فضيه نادره\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله ذهبيه خالصه" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 59)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 59 جنيه 💵\nكنزك هـو : عمله ذهبيه خالصه\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز علي بابا المفقود 💰" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 130)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 130 جنيه 💵\nكنزك هـو : كنز علي بابا المفقود 💰\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه ??","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "بطاقه ائتمان💰" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 200 جنيه 💵\nكنزك هـو : بطاقه ائتمان💰\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "دولار امريكي 💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 4150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 4150 جنيه 💵\nكنزك هـو : دولار امريكي 💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "دولار كندي 💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 200 جنيه 💵\nكنزك هـو : دولار كندي 💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ين يباني 💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 2150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 2150 جنيه 💵\nكنزك هـو : ين يباني 💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "جنيه بريطاني 💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 2150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 2150 جنيه 💵\nكنزك هـو : جنيه بريطاني 💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "دنانير عراقيه 💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 150 جنيه 💵\nكنزك هـو : دنانير عراقيه 💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ريال سعودي 💴" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 100)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 100 جنيه 💵\nكنزك هـو : ريال سعودي 💴\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "درهم اماراتي 💴" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 150 جنيه 💵\nكنزك هـو : درهم اماراتي 💴\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "فرنك جيبوتي 💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 200 جنيه 💵\nكنزك هـو : فرنك جيبوتي 💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "اموال مفقوده 💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 30)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 30 جنيه 💵\nكنزك هـو : اموال مفقوده 💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز خاص 💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 230)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 230 جنيه 💵\nكنزك هـو : كنز خاص 💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "صواع ملك مفقود ⚱️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 160 جنيه 💵\nكنزك هـو : صواع ملك مفقود ⚱️\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "تاج خاص بملك 👑" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 1500)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 1500 جنيه 💵\nكنزك هـو : تاج خاص بملك 👑\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "تاج خاص بملك 👑" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 20)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 20 جنيه 💵\nكنزك هـو : تاج خاص بملك 👑\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "اثار تحت المنزل" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 100)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 100 جنيه 💵\nكنزك هـو : اثار تحت المنزل\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "جثة فرعون قديمه" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 90)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 90 جنيه 💵\nكنزك هـو : جثة فرعون قديمه\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "تابوت ملك مصري ⚰️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 160 جنيه 💵\nكنزك هـو : تابوت ملك مصري ⚰️\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "تاج ملكه مصريه 👑" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 160 جنيه 💵\nكنزك هـو : تاج ملكه مصريه 👑\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مخطوطه لكنز " then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 1200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 1200 جنيه 💵\nكنزك هـو : مخطوطه لكنز \nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه ??","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مقبره فرعونيه 💎⚱️⚰️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 100)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 100 جنيه 💵\nكنزك هـو : مقبره فرعونيه 💎⚱️⚰️\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "تمثال رمسيس ⚰️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 190)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 190 جنيه 💵\nكنزك هـو : تمثال رمسيس ⚰️\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز كيوجا المفقود 💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 150 جنيه 💵\nكنزك هـو : كنز كيوجا المفقود 💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز اطلانطس المفقود 💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 200 جنيه 💵\nكنزك هـو : كنز اطلانطس المفقود 💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "زئبق احمر 🌡️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 1130)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 150 جنيه 💵\nكنزك هـو : زئبق احمر 🌡️\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ياقوت ومرجان 💰" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 300)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 300 جنيه 💵\nكنزك هـو : ياقوت ومرجان 💰\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عمله من العصر الفاطمي 💶" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 90)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 90 جنيه 💵\nكنزك هـو : عمله من العصر الفاطمي 💶\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "مخطوطة كنز 📜" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 160)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 160 جنيه 💵\nكنزك هـو : مخطوطة كنز 📜\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "بلوره قديمه 🔮" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 100)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 100 جنيه 💵\nكنزك هـو : بلوره قديمه 🔮\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز تائه 🏛️" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 200 جنيه 💵\nكنزك هـو : كنز تائه 🏛️\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "عملات من العصر المملوكي 💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 200)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 200 جنيه 💵\nكنزك هـو : عملات من العصر المملوكي 💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز نابليون 💲💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 150)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 150 جنيه 💵\nكنزك هـو : كنز نابليون 💲💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "كنز وخلاص 😂💲💲" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 100)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 100 جنيه ??\nكنزك هـو : كنز وخلاص 😂💲💲\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	elseif Descriptioont == "ممتلكات قديمه 💸" then
+	Redis:incrby(status.."boob"..msg.sender.user_id , 130)
+	local ballancee = Redis:get(status.."boob"..msg.sender.user_id) or 0
+	LuaTele.sendText(msg.chat_id,msg.id,"اشعار ايداع "..neews.."\nتم استبداله بمبلغ وقدره : 130 جنيه 💵\nكنزك هـو : ممتلكات قديمه 💸\nنوع العملية : البحث عن كنز\nرصيدك دلوقتي : "..ballancee.." جنيه 💵","md",true)
+	Redis:setex(status.."iiihoo" .. msg.sender.user_id,600, true)
+	end
+	else
+	LuaTele.sendText(msg.chat_id,msg.id, "⇜ معندكش حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
+	end
+	end
 if text == "حزوره" then
 redis:del(bot_id..":"..msg.chat_id..":game:Riddles")
 Hzora = {"الجرس","عقرب الساعه","السمك","المطر","5","الكتاب","البسمار","7","الكعبه","بيت الشعر","لهانه","انا","امي","الابره","الساعه","22","غلط","كم الساعه","البيتنجان","البيض","المرايه","الضوء","الهواء","الضل","العمر","القلم","المشط","الحفره","البحر","الثلج","الاسفنج","الصوت","بلم"};
@@ -7977,6 +9456,13 @@ if text == "بصمات مناوهيج" then
 	local msg_id = msg.id/2097152/0.5
 	https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/mnhvoise/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 	end
+	if text == "مناوهيج" or text == 'صور مناوهيج' then
+		local t = "تجمع مناوهيج ."
+		Rrr = math.random(4,50)
+		local m = "https://t.me/lpooopp/"..Rrr..""
+		local rep = msg.id/2097152/0.5
+		https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id="..msg_chat_id.."&caption="..URL.escape(t).."&photo="..m.."&reply_to_message_id="..rep.."&parse_mode=Markdown")
+		end
 ----------------------------------------------------------------------------------------------------
 end
 ----------------------------------------------------------------------------------------------------
@@ -8374,6 +9860,8 @@ if data.message and data.message.content then
 if data.message.content.luatele == "messageSticker" or data.message.content.luatele == "messageContact" or data.message.content.luatele == "messageVideoNote" or data.message.content.luatele == "messageDocument" or data.message.content.luatele == "messageVideo" or data.message.content.luatele == "messageAnimation" or data.message.content.luatele == "messagePhoto" then
 redis:sadd(bot_id..":"..data.message.chat_id..":mediaAude:ids",data.message.id)  
 end
+end
+--
 end
 ----------------------------------------------------------------------------------------------------
 end
