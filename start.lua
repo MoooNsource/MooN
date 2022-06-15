@@ -74,14 +74,14 @@ local Run = io.open("Run", 'w')
 Run:write([[
 cd $(cd $(dirname $0); pwd)
 while(true) do
-screen -S MooN -X kill
-screen -S MooN ./start
+screen -S ]]..Json_Info.result.username..[[ -X kill
+screen -S ]]..Json_Info.result.username..[[ ./start
 done
 ]])
 Run:close()
 redis:del(Server_Done.."id")
 redis:del(Server_Done.."token")
-os.execute('cp -a ../u/ ../'..Json_Info.result.username..' && rm -fr ~/u')
+os.execute('cp -a ../MooN/ ../'..Json_Info.result.username..' && rm -fr ~/u')
 os.execute('cd && cd '..Json_Info.result.username..';chmod +x start;chmod +x Run;./Run')
 end
 Information = dofile('./sudo.lua')
