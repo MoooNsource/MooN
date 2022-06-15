@@ -11510,10 +11510,15 @@ end
 end
 ----------------------------------------------------------------------------------------------------
 -- نهايه التفعيل
-if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'ياسورس' then
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
+local Text = "𝘸𝘦𝘭𝘤𝘰𝘮𝘦 𝘵𝘰 𝘵𝘩𝘦 𝘮𝘯𝘩 𝘴𝘰𝘶𝘳𝘤𝘦 ."
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = 'MNH', url = "https://t.me/wwuw"}}}
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/wwwuw&caption=".. URL.escape("𝘸𝘦𝘭𝘤𝘰𝘮𝘦 𝘵𝘰 𝘵𝘩𝘦 𝘮𝘯𝘩 𝘴𝘰𝘶𝘳𝘤𝘦 .").."&reply_to_message_id="..(msg_id/2097152/0.5).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+keyboard.inline_keyboard = {
+{
+{text = '𝘮𝘯𝘩 𝘴𝘰𝘶𝘳𝘤𝘦 . ',url="t.me/wwwuw"}
+},
+}
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg.chat_id .. "&photo=https://t.me/wwwuw&caption=".. URL.escape(Text).."&photo=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 ----------------------------------------------------------------------------------------------------
 if text == 'تفعيل' then
