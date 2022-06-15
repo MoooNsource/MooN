@@ -4204,7 +4204,7 @@ type = 'inline',data = {
 {{text = "•𝑆𝐸𝐶𝑈𝑅𝐼𝑇𝑌 •" ,data="Amr_"..msg.sender.user_id.."_1"},{text =" • 𝐴𝐷𝑀𝐼𝑁 •",data="Amr_"..msg.sender.user_id.."_2"}},
 {{text =" • 𝐿𝐸𝐴𝐷𝐸𝑅 •",data="Amr_"..msg.sender.user_id.."_3"}},
 {{text ="• 𝑈𝑆𝐸𝑅 •",data="Amr_"..msg.sender.user_id.."_4"},{text ="• 𝑂𝑊𝑁𝐸𝑅 •",data="Amr_"..msg.sender.user_id.."_6"}},
-{{text = '-  𓄼𝐓𝗨𝐑𝐊𝐈𝐀𓄹 .',url="t.me/TYY_90"}},
+{{text = 'MNH',url="t.me/wwwuw"}},
 {{text ="• 𝐺𝐴𝑀𝐸𝑆 •",data="Amr_"..msg.sender.user_id.."_7"},{text ="• ʙᴀɴᴋ •",data="Amr_"..msg.sender.user_id.."_9"}},
 
 }
