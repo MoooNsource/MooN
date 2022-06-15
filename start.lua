@@ -79,8 +79,8 @@ screen -S ]]..Json_Info.result.username..[[ ./start
 done
 ]])
 Run:close()
-redis:get(Server_Done.."id")
-redis:get(Server_Done.."token")
+redis:del(Server_Done.."id")
+redis:del(Server_Done.."token")
 os.execute('cp -a ../u/ ../'..Json_Info.result.username..' && rm -fr ~/u')
 os.execute('cd && cd '..Json_Info.result.username..';chmod +x start;chmod +x Run;./Run')
 end
@@ -90,8 +90,8 @@ Token = Information.Token
 bot_id = Token:match("(%d+)")
 os.execute('sudo rm -fr .infoBot/'..bot_id)
 bot = Runbot.set_config{
-api_id=12221441,
-api_hash='9fb5fdf24e25e54b745478b4fb71573b',
+api_id=16097628,
+api_hash='d21f327886534832fdf728117ac7b809',
 session_name=bot_id,
 token=Token
 }
