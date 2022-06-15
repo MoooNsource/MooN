@@ -6257,7 +6257,7 @@ bot.sendText(msg.chat_id,msg.id,[[
 
 - اضغط للنسخ
 
-[𓄼𝐓𝗨𝐑𝐊𝐈𝐀𓄹](t.me/TYY_90)
+
 ]],"md",true)  
 return false
 end
@@ -6292,7 +6292,7 @@ bot.sendText(msg.chat_id,msg.id,[[
 -  خلع
 -  ترتيبي
 
-[𓄼𝐓𝗨𝐑𝐊𝐈𝐀𓄹](t.me/TYY_90)
+
 ]],"md",true)  
 return false
 end
