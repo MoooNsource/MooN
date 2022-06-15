@@ -4871,9 +4871,9 @@ if text == "الساعه" then
 bot.sendText(msg.chat_id,msg.id,"*- الساعه الان : ( "..os.date("%I:%M%p").." ) .*","md",true)  
 end
 if text == "شسمك" or text == "شنو اسمك" then
-namet = {" اسمي "..(redis:get(bot_id..":namebot")}
+namet = {"اسمي "..(redis:get(bot_id..":namebot") or "مناوهيج"),"عمريي اسمي "..(redis:get(bot_id..":namebot") or "مناوهيج"),"اني لقميل "..(redis:get(bot_id..":namebot") or "مناوهيج"),(redis:get(bot_id..":namebot") or "مناوهيج").." اني"}
 bot.sendText(msg.chat_id,msg.id,"*"..namet[math.random(#namet)].."*","md",true)  
-end 
+end
 if text == "بوت" or text == (redis:get(bot_id..":namebot") or "مناوهيج") then
 nameBot = {"ها حبي","ها سيد","كلي سيد","كلبي سيد","كول","محتاج شي","عندي اسم "}
 bot.sendText(msg.chat_id,msg.id,"*"..nameBot[math.random(#nameBot)].."*","md",true)  
