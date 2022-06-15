@@ -1,72 +1,67 @@
-Server_Done = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
-redis = dofile("./libs/redis.lua").connect("127.0.0.1", 6379)
-serpent = dofile("./libs/serpent.lua")
-JSON    = dofile("./libs/dkjson.lua")
-json    = dofile("./libs/JSON.lua")
-URL     = dofile("./libs/url.lua")
-http    = require("socket.http")
+URL     = require("./libs/url")
+JSON    = require("./libs/dkjson")
+serpent = require("libs/serpent")
+json = require('libs/json')
+Redis = require('libs/redis').connect('127.0.0.1', 6379)
+http  = require("socket.http")
 https   = require("ssl.https")
--------------------------------------------------------------------
-whoami = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '')
-uptime=io.popen([[echo `uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"D,",h+0,"H,",m+0,"M."}'`]]):read('*a'):gsub('[\n\r]+', '')
-CPUPer=io.popen([[echo `top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`]]):read('*a'):gsub('[\n\r]+', '')
-HardDisk=io.popen([[echo `df -lh | awk '{if ($6 == "/") { print $3"/"$2" ( "$5" )" }}'`]]):read('*a'):gsub('[\n\r]+', '')
-linux_version=io.popen([[echo `lsb_release -ds`]]):read('*a'):gsub('[\n\r]+', '')
-memUsedPrc=io.popen([[echo `free -m | awk 'NR==2{printf "%sMB/%sMB ( %.2f% )\n", $3,$2,$3*100/$2 }'`]]):read('*a'):gsub('[\n\r]+', '')
--------------------------------------------------------------------
-Runbot = require('luatele')
--------------------------------------------------------------------
-local infofile = io.open("./sudo.lua","r")
-if not infofile then
-if not redis:get(Server_Done.."token") then
-os.execute('sudo rm -rf setup.lua')
-io.write('\27[1;31mSend your Bot Token Now\n\27[0;39;49m')
+local Methods = io.open("./luatele.lua","r")
+if Methods then
+URL.tdlua_CallBack() end
+SshId = io.popen("echo $SSH_CLIENT ︙ awk '{print $1}'"):read('*a')
+luatele = require 'luatele'
+local FileInformation = io.open("./Information.lua","r")
+if not FileInformation then
+if not Redis:get(SshId.."Info:Redis:Token") then
+io.write('\27[1;31mارسل لي توكن البوت الان \nSend Me a Bot Token Now ↡\n\27[0;39;49m')
 local TokenBot = io.read()
 if TokenBot and TokenBot:match('(%d+):(.*)') then
-local url , res = https.request("https://api.telegram.org/bot"..TokenBot.."/getMe")
+local url , res = https.request('https://api.telegram.org/bot'..TokenBot..'/getMe')
 local Json_Info = JSON.decode(url)
 if res ~= 200 then
-print('\27[1;34mBot Token is Wrong\n')
+print('\27[1;34mعذرا توكن البوت خطأ تحقق منه وارسله مره اخره \nBot Token is Wrong\n')
 else
-io.write('\27[1;34mThe token been saved successfully \n\27[0;39;49m')
+io.write('\27[1;34mتم حفظ التوكن بنجاح \nThe token been saved successfully \n\27[0;39;49m')
 TheTokenBot = TokenBot:match("(%d+)")
-os.execute('sudo rm -fr .infoBot/'..TheTokenBot)
-redis:setex(Server_Done.."token",300,TokenBot)
-end 
+os.execute('sudo rm -fr .CallBack-Bot/'..TheTokenBot)
+Redis:set(SshId.."Info:Redis:Token",TokenBot)
+Redis:set(SshId.."Info:Redis:Token:User",Json_Info.result.username) end 
 else
-print('\27[1;34mToken not saved, try again')
-end 
-os.execute('lua5.3 start.lua')
-end
-if not redis:get(Server_Done.."id") then
-io.write('\27[1;31mSend Developer ID\n\27[0;39;49m')
+print('\27[1;34mلم يتم حفظ التوكن جرب مره اخره \nToken not saved, try again') end 
+os.execute('lua MooN.lua') end
+if not Redis:get(SshId.."Info:Redis:User") then
+io.write('\27[1;31mارسل معرف المطور الاساسي الان \nDeveloper UserName saved ↡\n\27[0;39;49m')
+local UserSudo = io.read():gsub('@','')
+if UserSudo ~= '' then
+io.write('\n\27[1;34mتم حفظ معرف المطور \nDeveloper UserName saved \n\n\27[0;39;49m')
+Redis:set(SshId.."Info:Redis:User",UserSudo)
+else
+print('\n\27[1;34mلم يتم حفظ معرف المطور الاساسي \nDeveloper UserName not saved\n') end 
+os.execute('lua MooN.lua') end
+if not Redis:get(SshId.."Info:Redis:User:ID") then
+io.write('\27[1;31mارسل ايدي المطور الاساسي الان \nDeveloper ID saved ↡\n\27[0;39;49m')
 local UserId = io.read()
-if UserId and UserId:match('%d+') then
-io.write('\n\27[1;34mDeveloper ID saved \n\n\27[0;39;49m')
-redis:setex(Server_Done.."id",300,UserId)
+if UserId and UserId:match('(%d+)') then
+io.write('\n\27[1;34mتم حفظ ايدي المطور \nDeveloper ID saved \n\n\27[0;39;49m')
+Redis:set(SshId.."Info:Redis:User:ID",UserId)
 else
-print('\n\27[1;34mDeveloper ID not saved\n')
-end 
-os.execute('lua5.3 start.lua')
-end
-local url , res = https.request('https://api.telegram.org/bot'..redis:get(Server_Done.."token")..'/getMe')
-local Json_Info = JSON.decode(url)
-local Inform = io.open("sudo.lua", 'w')
-Inform:write([[
+print('\n\27[1;34mلم يتم حفظ ايدي المطور الاساسي \nDeveloper ID not saved\n') end 
+os.execute('lua MooN.lua') end
+local Informationlua = io.open("Information.lua", 'w')
+Informationlua:write([[
 return {
-	
-Token = "]]..redis:get(Server_Done.."token")..[[",
-
-id = ]]..redis:get(Server_Done.."id")..[[
-
+Token = "]]..Redis:get(SshId.."Info:Redis:Token")..[[",
+UserBot = "]]..Redis:get(SshId.."Info:Redis:Token:User")..[[",
+UserSudo = "]]..Redis:get(SshId.."Info:Redis:User")..[[",
+SudoId = ]]..Redis:get(SshId.."Info:Redis:User:ID")..[[
 }
 ]])
-Inform:close()
+Informationlua:close()
 local start = io.open("start", 'w')
 start:write([[
 cd $(cd $(dirname $0); pwd)
 while(true) do
-sudo lua5.3 start.lua
+sudo lua5.3 MooN.lua
 done
 ]])
 start:close()
@@ -74,27 +69,24 @@ local Run = io.open("Run", 'w')
 Run:write([[
 cd $(cd $(dirname $0); pwd)
 while(true) do
-screen -S ]]..Json_Info.result.username..[[ -X kill
-screen -S ]]..Json_Info.result.username..[[ ./start
+screen -S ]]..Redis:get(SshId.."Info:Redis:Token:User")..[[ -X kill
+screen -S ]]..Redis:get(SshId.."Info:Redis:Token:User")..[[ ./start
 done
 ]])
 Run:close()
-redis:del(Server_Done.."id")
-redis:del(Server_Done.."token")
-os.execute('cp -a ../u/ ../'..Json_Info.result.username..' && rm -fr ~/u')
-os.execute('cd && cd '..Json_Info.result.username..';chmod +x start;chmod +x Run;./Run')
-end
-Information = dofile('./sudo.lua')
-sudoid = Information.id
+Redis:del(SshId.."Info:Redis:User:ID");Redis:del(SshId.."Info:Redis:User");Redis:del(SshId.."Info:Redis:Token:User");Redis:del(SshId.."Info:Redis:Token")
+os.execute('chmod +x start;chmod +x Run;./Run') end
+Information = dofile('./Information.lua')
+Sudo_Id = Information.SudoId
+UserSudo = Information.UserSudo
 Token = Information.Token
-bot_id = Token:match("(%d+)")
-os.execute('sudo rm -fr .infoBot/'..bot_id)
-bot = Runbot.set_config{
-api_id=16097628,
-api_hash='d21f327886534832fdf728117ac7b809',
-session_name=bot_id,
-token=Token
-}
+UserBot = Information.UserBot
+start = Token:match("(%d+)")
+os.execute('sudo rm -fr .CallBack-Bot/'..start)
+LuaTele = luatele.set_config{api_id=2692371,api_hash='fe85fff033dfe0f328aeb02b4f784930',session_name=start,token=Token}
+function var(value)  
+print(serpent.block(value, {comment=false}))   
+end 
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------
 namebot = redis:get(bot_id..":namebot") or "مناوهيج"
