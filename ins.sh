@@ -42,7 +42,7 @@ fi
 if [ "$1" = "ins" ]; then
 install
 cd ..
-cd uu
+cd MooN
 rm -rf luarocks*
 sudo lua5.3 setup.lua
 fi
