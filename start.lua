@@ -5005,7 +5005,7 @@ bot.sendText(msg.chat_id,msg.id,"*- الاسم : *( "..(t).." *)*\n*- المعر
 end
 end
 if text == 'مطور السورس' or text == 'مبرمج السورس' then
-local UserId_Info = bot.searchPublicChat("Kidcrl")
+local UserId_Info = bot.searchPublicChat("HMMOT")
 if UserId_Info.id then
 local UserInfo = bot.getUser(UserId_Info.id)
 if UserInfo.username and UserInfo.username ~= "" then
