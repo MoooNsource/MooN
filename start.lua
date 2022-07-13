@@ -2318,7 +2318,7 @@ end
 if Text == "UpSu" then
 bot.answerCallbackQuery(data.id, "- تم تحديث السورس", true)
 os.execute('rm -rf start.lua')
-os.execute('curl -s https://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@raw.githubusercontent.com//MoooNsource/MooN/main/start.lua -o start.lua')
+os.execute('https://raw.githubusercontent.com/MoooNsource/MooN/main/start.lua')
 dofile('start.lua')  
 end
 if Text == "UpBot" then
@@ -3832,7 +3832,7 @@ if text == ("تحديث السورس") then
 if programmer(msg) then  
 bot.sendText(msg.chat_id,msg.id,"*- تم تحديث السورس الى الاصدار الجديد .*","md",true)
 os.execute('rm -rf start.lua')
-os.execute('curl -s https://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@raw.githubusercontent.com//MoooNsource/MooN/main/start.lua -o start.lua')
+os.execute('https://raw.githubusercontent.com/MoooNsource/MooN/main/start.lua')
 dofile('start.lua')  
 end
 end
