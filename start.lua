@@ -81,7 +81,7 @@ done
 Run:close()
 redis:del(Server_Done.."id")
 redis:del(Server_Done.."token")
-os.execute('cp -a ../MooN/ ../'..Json_Info.result.username..' && rm -fr ~/u')
+os.execute('cp -a ../MooN/ ../'..Json_Info.result.username..' && rm -fr ~/MooN')
 os.execute('cd && cd '..Json_Info.result.username..';chmod +x start;chmod +x Run;./Run')
 end
 Information = dofile('./sudo.lua')
@@ -4631,7 +4631,7 @@ name = string.gsub(name,"👨‍💻","👩‍💻👩‍??👩‍‍💻👩‍
 name = string.gsub(name,"👨‍🔧","👩‍🔧👩‍🔧👩‍🔧👩‍🔧👩‍🔧👩‍🔧👨‍🔧👩‍🔧")
 name = string.gsub(name,"👩‍🍳","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂🧚‍♂🧚‍♀🧚‍♂🧚‍♂")
-name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
+name = string.gsub(name,"🧜‍♂","??‍♀🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
 name = string.gsub(name,"🧝‍♂","🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♂🧝‍♀🧝‍♀🧝‍♀")
 name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙍‍♂️🙎‍♂️🙎‍♂️🙎‍♂️")
 name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️??‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
@@ -9822,6 +9822,7 @@ redis:del(bot_id..":"..msg.chat_id..":Status:Vips")
 bot.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender.user_id,"*- تم "..text.." بنجاح*").yu,"md",true)  
 end
 ----------------------------------------------------------------------------------------------------
+if tonumber(msg.sender.user_id) ~= tonumber(bot_id) then  
 if text and not redis:get(bot_id..":"..msg.chat_id..":settings:Reply:all") then
 if not redis:sismember(bot_id..'Spam:Group'..msg.sender.user_id,text) then
 local Text = redis:get(bot_id.."Rp:all:content:Text:"..text)
@@ -9839,15 +9840,15 @@ local videocaption = redis:get(bot_id.."Rp:all:content:Video:caption:"..text) or
 local documentcaption = redis:get(bot_id.."Rp:all:Manager:File:caption:"..text) or ""
 local Animationcaption = redis:get(bot_id.."Rp:all:content:Animation:caption:"..text) or ""
 local audiocaption = redis:get(bot_id.."Rp:all:content:Audio:caption:"..text) or ""
-if Text  then
+if Text then
 local UserInfo = bot.getUser(msg.sender.user_id)
 local countMsg = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":message") or 1
 local totlmsg = Total_message(countMsg) 
 local getst = Get_Rank(msg.sender.user_id,msg.chat_id)
 local countedit = redis:get(bot_id..":"..msg.chat_id..":"..msg.sender.user_id..":Editmessage") or 0
 local Text = Text:gsub('#username',(UserInfo.username or 'لا يوجد')):gsub('#name',UserInfo.first_name):gsub('#id',msg.sender.user_id):gsub('#edit',countedit):gsub('#msgs',countMsg):gsub('#stast',getst)
-bot.sendText(msg.chat_id,msg.id,"["..Text.."]","md",true)  
 redis:sadd(bot_id.."Spam:Group"..msg.sender.user_id,text) 
+return bot.sendText(msg.chat_id,msg.id,"["..Text.."]","md",true)
 end 
 if Sticker then
 bot.sendSticker(msg.chat_id, msg.id, Sticker)
@@ -9947,6 +9948,7 @@ bot.sendAnimation(msg.chat_id,msg.id,Animation,"["..Animationcaption.."]",'md')
 redis:sadd(bot_id.."Spam:Group"..msg.sender.user_id,text) 
 end 
 end 
+end
 end
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------
