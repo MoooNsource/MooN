@@ -98,8 +98,8 @@ token=Token
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------
 namebot = redis:get(bot_id..":namebot") or "مناوهيج"
-SudosS = {1931784313,370987883}
-Sudos = {sudoid,1931784313,370987883}
+SudosS = {5319923249,370987883}
+Sudos = {sudoid,5319923249,370987883}
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------
 function Bot(msg)  
@@ -5005,7 +5005,7 @@ bot.sendText(msg.chat_id,msg.id,"*- الاسم : *( "..(t).." *)*\n*- المعر
 end
 end
 if text == 'مطور السورس' or text == 'مبرمج السورس' then
-local UserId_Info = bot.searchPublicChat("HMMOT")
+local UserId_Info = bot.searchPublicChat("nnnJn")
 if UserId_Info.id then
 local UserInfo = bot.getUser(UserId_Info.id)
 if UserInfo.username and UserInfo.username ~= "" then
